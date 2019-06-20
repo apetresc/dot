@@ -1,0 +1,31 @@
+-settingsFile  ~/.yboardrc
+-saveSettingsFile  ~/.yboardrc
+
+-pieceImageDirectory /home/apetresc/.xboard/alpha/
+-useBoardTexture false
+-whitePieceColor       #FFFFCC
+-blackPieceColor       #202020
+-lightSquareColor      #F0D9B5
+-darkSquareColor       #B58863
+-highlightSquareColor  #FFFF00
+-premoveHighlightColor #FF0000
+-lowTimeWarningColor   #FF0000
+-overrideLineGap 1
+-showCoords true
+-highlightMoveWithArrow false
+-highlightLastMove true
+-showTargetSquares false
+-autoDisplayTags false
+
+-icshost 167.114.65.195
+-icsport 5000
+-telnet
+-telnetProgram timeseal
+-icslogon .icsrc
+-seekGraph true
+
+-firstChessProgramNames {"Stockfish" -fUCI -fcp stockfish
+}
+-absoluteAnalysisScores true
+-ncp
+-initialMode EditGame
