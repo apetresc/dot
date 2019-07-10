@@ -62,6 +62,7 @@ highlight SpecialKey guifg=#4a4a59
 nnoremap <C-[> :pop<CR>
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_custom_ignore = '.*.pyc'
+let g:ctrlp_switch_buffer = 'et'
 
 " ************************* PERSISTENT UNDOS **********************************
 " Keep undo history across sessions by storing it in a file
