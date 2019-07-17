@@ -61,7 +61,7 @@ highlight SpecialKey guifg=#4a4a59
 " ************************* TAGS **********************************************
 nnoremap <C-[> :pop<CR>
 let g:ctrlp_extensions = ['tag']
-let g:ctrlp_custom_ignore = '.*.pyc'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_switch_buffer = 'et'
 
 " ************************* PERSISTENT UNDOS **********************************
