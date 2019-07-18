@@ -1,0 +1,60 @@
+[user]
+	name = Adrian Petrescu
+	email = apetresc@gmail.com
+	signingkey = 5E882972
+[color]
+	pager = true
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[diff]
+	renames = copy
+	renameLimit = 2000
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[alias]
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	edit-last-commit = !subl `git diff-tree -r --name-only HEAD HEAD~1`
+	st = status
+	rbranch = branch -a --sort=-committerdate
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	revert = checkout --
+	revert-all = checkout -- `git ls-files --modified`
+  cloner = clone --recurse-submodules -j8
+  pullr = clone --recurse-submodules -j8
+[github]
+	user = apetresc
+[push]
+	default = current
+[mergetool]
+	keepBackup = true
+	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[gist]
+	browse = yes
+[core]
+	filemode = true
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[commit]
+  gpgsign = true
+[gpg]
+  program = gpg
+
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"

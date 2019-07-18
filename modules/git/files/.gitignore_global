@@ -1,0 +1,13 @@
+.DS_Store
+.editorconfig
+.env
+
+.idea/
+
+.ruby-version
+.rbenv-gemsets
+
+docker-compose.override.yml
+
+tags
+Session.vim
