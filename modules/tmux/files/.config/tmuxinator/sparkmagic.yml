@@ -45,12 +45,12 @@ pre_window: workon sparkmagic
 
 windows:
   - editor:
-      layout: main-vertical
+      layout: main-horizontal
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
         - vim
-        - guard
-  - server: bundle exec rails s
-  - logs: tail -f log/development.log
+        - ls
+  - server: docker-compose up
+  - logs: docker-compose logs --tail=100 -f

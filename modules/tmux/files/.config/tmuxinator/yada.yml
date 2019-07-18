@@ -49,6 +49,13 @@ windows:
       panes:
         - if [[ -f Session.vim ]]; then vim -S Session.vim ; else vim . ; fi
         - pytest
-  - repo:
+  - dot:
+      layout: main-horizontal
       panes:
-        - ranger ~/.local/share/yada
+        - ranger ~/.local/share/yada/apetresc/dot
+        - cd ~/.local/share/yada/apetresc/dot
+  - dot-private:
+      layout: main-horizontal
+      panes:
+        - ranger ~/.local/share/yada/apetresc/dot-private
+        - cd ~/.local/share/yada/apetresc/dot-private
