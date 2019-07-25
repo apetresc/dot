@@ -1,7 +1,11 @@
 [user]
 	name = Adrian Petrescu
-	email = apetresc@gmail.com
+	email = adrian@apetre.sc
 	signingkey = 5E882972
+[sendemail]
+  smtpserver = /usr/bin/msmtp
+  smtpserveroption=-a
+  smtpserveroption=apetresc
 [color]
 	pager = true
 	ui = true
