@@ -27,6 +27,10 @@ color zenburn
 set termguicolors
 set colorcolumn=100
 
+" ************************ FILETYPES ******************************************
+autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
+autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
+
 " ************************ TMUX-NAVIGATOR *************************************
 let g:tmux_navigator_no_mappings = 1
 
