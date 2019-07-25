@@ -109,6 +109,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let test#strategy = "vimux"
 nmap <silent> tf :TestFile<CR>
 nmap <silent> tt :TestLast<CR>
+nmap <silent> ta :TestSuite<CR>
 
 " **************************** COC ********************************************
 set cmdheight=2
