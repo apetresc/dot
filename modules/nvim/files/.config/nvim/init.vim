@@ -1,8 +1,48 @@
+"                   .                    
+"  ##############..... ##############   
+"  ##############......##############   
+"    ##########..........##########     
+"    ##########........##########       
+"    ##########.......##########        
+"    ##########.....##########..        
+"    ##########....##########.....      
+"  ..##########..##########.........    
+"....##########.#########.............  
+"  ..################JJJ............    
+"    ################.............      
+"    ##############.JJJ.JJJJJJJJJJ      
+"    ############...JJ...JJ..JJ  JJ     
+"    ##########.....JJ...JJ..JJ  JJ      
+"    ########......JJJ..JJJ JJJ JJJ     
+"    ######    .........                
+"                .....                  
+"                  .                    
+
+
+" MISC {{{1
 set nocompatible
 syntax enable
 filetype plugin on
 
-" ************************ PLUGINS ********************************************
+let mapleader=","
+set noshowmode
+set wrap
+set number
+set hidden
+
+" Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
+nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
+" Shortcut to source (reload) THIS configuration file after editing it: (s)ource (c)onfiguraiton
+nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+
+" live view of substitutions when typing out a replacement
+set inccommand=nosplit
+
+" Make "Y" copy from cursor to end of line, instead of the whole line
+map Y y$
+
+
+" PLUGINS {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'jnurmine/zenburn'
 Plug 'tpope/vim-fugitive'
@@ -21,17 +61,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-" ************************ COLORS *********************************************
-set t_Co=256
-color zenburn
-set termguicolors
-set colorcolumn=100
-
-" ************************ FILETYPES ******************************************
-autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
-autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
-
-" ************************ TMUX-NAVIGATOR *************************************
+" TMUX-NAVIGATOR {{{2
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -40,7 +70,7 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 "nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
-" ************************ NERDTREE *******************************************
+" NERDTREE {{{2
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -48,70 +78,25 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <C-\> :NERDTreeToggle<CR>
 nmap <C-t> :NERDTreeFind<CR>
 
-" ************************ VIMTEX *********************************************
+" VIMTEX {{{2
 let g:vimtex_view_method = 'zathura'
 
-" ************************ SPLITS *********************************************
-" Open splits to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
-" ************************* WHITESPACE ****************************************
-set list
-set listchars=tab:▸\ ,trail:·
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
-
-" ************************* TAGS **********************************************
-nnoremap <C-[> :pop<CR>
-let g:ctrlp_extensions = ['tag']
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_switch_buffer = 'et'
-
-" ************************* PERSISTENT UNDOS **********************************
-" Keep undo history across sessions by storing it in a file
-set undofile
-set directory=$HOME/tmp/vim//
-set backupdir=$HOME/tmp/vim//
-set undodir=$HOME/tmp/vim//
-" ************************* CLIPBOARD *****************************************
-set clipboard+=unnamedplus
-
-" ************************* MOUSE *********************************************
-set mouse=a
-
-" ************************* SEARCH ********************************************
-set ic
-
-" ************************* VIMUX *********************************************
+" VIMUX {{{2
 map <C-F10> :VimuxPromptCommand<CR>
 map <F10> :VimuxRunLastCommand<CR>
 
-" ************************* MISC **********************************************
-let mapleader=","
-set noshowmode
-set wrap
-set number
-set hidden
-
-" live view of substitutions when typing out a replacement
-set inccommand=nosplit
-
-" Make "Y" copy from cursor to end of line, instead of the whole line
-map Y y$
-
-" *************************** AIRLINE *****************************************
+" AIRLINE {{{2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
-" *************************** VIM-TEST ****************************************
+" VIM-TEST {{{2
 let test#strategy = "vimux"
 nmap <silent> tf :TestFile<CR>
 nmap <silent> tt :TestLast<CR>
 nmap <silent> ta :TestSuite<CR>
 
-" **************************** COC ********************************************
+" COC {{{2
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
@@ -149,3 +134,53 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
+
+
+
+" COLORS {{{1
+set t_Co=256
+color zenburn
+set termguicolors
+set colorcolumn=100
+
+" FILETYPES {{{1
+autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
+autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
+
+" SPLITS {{{1
+" Open splits to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" WHITESPACE {{{1
+set list
+set listchars=tab:▸\ ,trail:·
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+" TAGS {{{1
+nnoremap <C-[> :pop<CR>
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_switch_buffer = 'et'
+
+" PERSISTENT UNDOS {{{1
+" Keep undo history across sessions by storing it in a file
+set undofile
+set directory=$HOME/tmp/vim//
+set backupdir=$HOME/tmp/vim//
+set undodir=$HOME/tmp/vim//
+
+" CLIPBOARD {{{1
+set clipboard+=unnamedplus
+
+" MOUSE {{{1
+set mouse=a
+
+" SEARCH {{{1
+set ic
+
+
+" }}}
+
+" vim: ft=vim et sw=2: fdm=marker foldenable:
