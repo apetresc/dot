@@ -55,7 +55,7 @@ Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
 Plug 'janko/vim-test'
 Plug 'benmills/vimux'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
