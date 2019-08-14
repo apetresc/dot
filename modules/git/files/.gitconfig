@@ -1,7 +1,7 @@
 [user]
 	name = Adrian Petrescu
 	email = adrian@apetre.sc
-	signingkey = 5E882972
+	signingkey = AEA7D7B1
 [sendemail]
 	smtpserver = /usr/bin/msmtp
 	smtpserveroption=-a
