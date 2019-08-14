@@ -3,9 +3,9 @@
 	email = adrian@apetre.sc
 	signingkey = 5E882972
 [sendemail]
-  smtpserver = /usr/bin/msmtp
-  smtpserveroption=-a
-  smtpserveroption=apetresc
+	smtpserver = /usr/bin/msmtp
+	smtpserveroption=-a
+	smtpserveroption=apetresc
 [color]
 	pager = true
 	ui = true
@@ -27,8 +27,8 @@
 	unignore = update-index --no-assume-unchanged
 	revert = checkout --
 	revert-all = checkout -- `git ls-files --modified`
-  cloner = clone --recurse-submodules -j8
-  pullr = clone --recurse-submodules -j8
+	cloner = clone --recurse-submodules -j8
+	pullr = clone --recurse-submodules -j8
 [github]
 	user = apetresc
 [push]
@@ -56,9 +56,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [commit]
-  gpgsign = true
+	gpgsign = true
 [gpg]
-  program = gpg
+	program = gpg
 
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
