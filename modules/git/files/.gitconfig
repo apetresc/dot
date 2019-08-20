@@ -64,3 +64,5 @@
 
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
+
+# vim: noai:noexpandtab:ts=4:sw=4
