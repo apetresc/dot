@@ -1,4 +1,11 @@
 {
   "python.jediEnabled": true,
-  "python.formatting.autopep8Args": ["--max-line-length", "100"]
+  "python.formatting.autopep8Args": ["--max-line-length", "100"],
+  "languageserver": {
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt", "pom.xml"],
+      "filetypes": ["scala", "sbt"]
+    }
+  }
 }
