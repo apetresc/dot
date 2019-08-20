@@ -1,7 +1,7 @@
--settingsFile  ~/.yboardrc
--saveSettingsFile  ~/.yboardrc
+-settingsFile  "~/.yboardrc"
+-saveSettingsFile  "~/.yboardrc"
 
--pieceImageDirectory /home/apetresc/.xboard/alpha/
+-pieceImageDirectory "/home/apetresc/.xboard/alpha/"
 -useBoardTexture false
 -whitePieceColor       #FFFFCC
 -blackPieceColor       #202020
