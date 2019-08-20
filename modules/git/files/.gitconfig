@@ -56,9 +56,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [commit]
-	gpgsign = true
+	gpgSign = true
 [gpg]
 	program = gpg
+[tag]
+	gpgSign = true
 
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
