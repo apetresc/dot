@@ -27,7 +27,8 @@ filetype plugin on
 let mapleader=","
 set noshowmode
 set wrap
-set number
+set number relativenumber
+set nu rnu
 set hidden
 
 " Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
