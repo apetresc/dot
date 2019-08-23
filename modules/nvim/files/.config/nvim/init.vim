@@ -150,8 +150,11 @@ autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
 
 " SPLITS {{{1
 " Open splits to right and bottom, which feels more natural
+
 set splitbelow
 set splitright
+nnoremap <C-W>- <C-W>s
+nnoremap <C-W><BAR> <C-W>v
 
 " WHITESPACE {{{1
 set list
