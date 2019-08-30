@@ -6,6 +6,11 @@
       "command": "metals-vim",
       "rootPatterns": ["build.sbt", "pom.xml"],
       "filetypes": ["scala", "sbt"]
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
     }
   }
 }
