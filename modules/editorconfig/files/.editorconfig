@@ -9,6 +9,9 @@ charset = utf-8
 [*.py]
 indent_size = 4
 
+[*.go]
+indent_style = tab
+
 [*.csv]
 #insert_final_newline = false
 
