@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [[ -f "$HOME/.xprofile.local" ]]; then
+  source ~/.xprofile.local
+fi
+
+[[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
+find $HOME/.Xresources.d -type f -exec xrdb -merge '{}' \;
+
+xhost +
+
+export TERMINAL="st"
+
+export GPODDER_HOME="$HOME/frz/Podcasts"
+
+[[ -f $HOME/.fehbg ]] && sh $HOME/.fehbg
+
+if [[ "$platform" == 'linux' ]] && [[ ! -z "$DISPLAY" ]]; then
+  setxkbmap -option caps:escape
+fi
+
+

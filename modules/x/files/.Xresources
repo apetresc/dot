@@ -1,0 +1,54 @@
+Xft.dpi:                81
+Xft*antialias:          true
+Xft.lcdfilter:          lcddefault
+Xft.rgba:               rgb
+Xft*hinting:            true
+Xft*hintstyle:          hintslight
+Xft*autohint:           false
+
+Xcursor.theme:          Neutral
+*font:                  xft:Hack:pixelsize=12,xft
+
+emacs.font: Source Code Pro:pixelsize=13
+
+st.font: Hack Nerd Font:pixelsize=12:antialias=false:autohint=false:dpi=81
+
+st.termname: st-256color
+st.xfps: 120
+st.actionfps: 30
+st.blinktimeout: 800
+st.bellvolume: 0
+st.tabspaces: 8
+st.borderpx: 2
+st.cwscale: 1.0
+st.chscale: 1.0
+
+! Rofi
+!----------------------------------------------------------------------
+rofi.opacity:  100
+rofi.width:    25
+rofi.lines:    10
+rofi.font:     Hack 10
+rofi.location: 0
+rofi.padding:  5
+rofi.show-icons: true
+
+rofi.color-enabled: true
+rofi.color-window: #3F3F3F,#000000
+
+! Keyboard shortcuts
+rofi.kb-row-tab:                     Tab,Alt+Tab
+rofi.kb-row-up:                      Up,Alt+ISO_Left_Tab
+rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter,!Alt+Tab,!Alt+ISO_Left_Tab
+
+! State:           bg,     fg,     bgalt   hlbg,   hlfg
+! zenburn:         bg,     fg,     bg-05,  bg+1,   fg+1
+rofi.color-normal: #3F3F3F,#DCDCCC,#383838,#4F4F4F,#FFFFEF
+!                  blue-4, fg,     blue-5, blue-3, fg+1
+rofi.color-active: #4C7073,#DCDCCC,#366060,#5C888B,#FFFFEF
+!                  red-4,  fg,     red-5,  red-3,  fg+1
+rofi.color-urgent: #8C5353,#DCDCCC,#7C4343,#9C6363,#FFFFEF
+
+
+! Import local overrides
+#include ".Xresources.d/local"
