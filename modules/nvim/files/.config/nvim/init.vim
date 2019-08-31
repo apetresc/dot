@@ -140,9 +140,10 @@ nmap <leader>f <Plug>(coc-format-selected)
 
 " COLORS {{{1
 set t_Co=256
-color zenburn
 set termguicolors
 set colorcolumn=100
+
+color zenburn
 
 " FILETYPES {{{1
 autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
