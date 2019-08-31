@@ -60,6 +60,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'chrisbra/Colorizer'
 call plug#end()
 
 " TMUX-NAVIGATOR {{{2
