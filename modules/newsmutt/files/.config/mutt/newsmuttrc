@@ -7,8 +7,9 @@ alias me Adrian Petrescu <adrian@apetre.sc>
 
 set mailcap_path = ~/.mailcap
 set certificate_file = ~/.cache/mutt/certificates
-set folder = "$HOME/.news"
-set news_cache_dir = "$HOME/.news"
+set folder = "~/.news"
+set news_cache_dir = "~/.news"
+set message_cachedir = "~/.news/cache"
 set date_format="%m/%d %I:%M%p"
 set index_format="%4C %T %D %-20.20F %?M?[?%M%?M?] ?%s"
 set to_chars=" +TC➥✉️R"
