@@ -5,7 +5,7 @@ if [[ -f "$HOME/.xprofile.local" ]]; then
 fi
 
 [[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
-find $HOME/.Xresources.d -type f -exec xrdb -merge '{}' \;
+find -L $HOME/.Xresources.d -type f -exec xrdb -merge '{}' \;
 
 xhost +
 
