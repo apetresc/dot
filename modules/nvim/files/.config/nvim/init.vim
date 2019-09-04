@@ -63,6 +63,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'chrisbra/Colorizer'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 " TMUX-NAVIGATOR {{{2
