@@ -119,8 +119,10 @@ tag-transforms "important" "!" \
 macro index,pager ! "<modify-labels>!important<enter>" "Toggle the 'important' flag"
 
 set catchup_newsgroup = no
+set show_new_news = no
 bind index m post-message
 macro index h "<change-newsgroup>?"
 macro browser ga "<toggle-subscribed>"
+bind browser r reload-active
 
 folder-hook . 'push <collapse-all>'
