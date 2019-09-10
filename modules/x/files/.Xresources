@@ -49,6 +49,3 @@ rofi.color-active: #4C7073,#DCDCCC,#366060,#5C888B,#FFFFEF
 !                  red-4,  fg,     red-5,  red-3,  fg+1
 rofi.color-urgent: #8C5353,#DCDCCC,#7C4343,#9C6363,#FFFFEF
 
-
-! Import local overrides
-#include ".Xresources.d/local"
