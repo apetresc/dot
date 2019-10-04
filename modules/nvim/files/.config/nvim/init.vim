@@ -64,6 +64,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-unimpaired'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 " TMUX-NAVIGATOR {{{2
@@ -141,6 +142,12 @@ xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 
 
+" VISTA {{{1
+let g:vista_icon_indent = ["▸ ", ""]
+let g:vista_default_executive = 'coc'
+let g:vista#renderer#enable_icon = 1
+let g:vista_echo_cursor_strategy = 'scroll'
+nmap <C-s> :Vista!!<CR>
 
 " COLORS {{{1
 set t_Co=256
