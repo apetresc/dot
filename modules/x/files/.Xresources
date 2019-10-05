@@ -1,17 +1,17 @@
 Xft.dpi:                81
-Xft*antialias:          true
-Xft.lcdfilter:          lcddefault
-Xft.rgba:               rgb
-Xft*hinting:            true
-Xft*hintstyle:          hintslight
-Xft*autohint:           false
+!Xft*antialias:          true
+!Xft.lcdfilter:          lcddefault
+!Xft.rgba:               rgb
+!Xft*hinting:            true
+!Xft*hintstyle:          hintslight
+!Xft*autohint:           false
 
 Xcursor.theme:          Neutral
-*font:                  xft:Hack:pixelsize=12,xft
 
 emacs.font: Source Code Pro:pixelsize=13
 
-st.font: Hack Nerd Font:pixelsize=12:antialias=false:autohint=false:dpi=81
+!st.font: Hack Nerd Font:pixelsize=12:antialias=false:autohint=false:dpi=81
+st.font: xos4 Terminus:pixelsize=14
 
 st.termname: st-256color
 st.xfps: 120
@@ -28,7 +28,8 @@ st.chscale: 1.0
 rofi.opacity:  100
 rofi.width:    25
 rofi.lines:    10
-rofi.font:     Hack 10
+!rofi.font:     Hack 10
+rofi.font:     Terminus 14
 rofi.location: 0
 rofi.padding:  5
 rofi.show-icons: true
