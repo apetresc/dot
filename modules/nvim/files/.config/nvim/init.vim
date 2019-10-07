@@ -141,6 +141,9 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 
+nnoremap <silent> <leader>s :<C-u>CocList outline<CR>
+nnoremap <silent> <leader>w :<C-u>CocList --interactive symbols<CR>
+
 
 " VISTA {{{1
 let g:vista_icon_indent = ["▸ ", ""]
@@ -154,6 +157,7 @@ set t_Co=256
 set termguicolors
 set colorcolumn=100
 
+let g:zenburn_high_Contrast=0
 color zenburn
 
 " FILETYPES {{{1
@@ -173,6 +177,9 @@ set list
 set listchars=tab:▸\ ,trail:·
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
+
+" CTRLP {{{1
+nnoremap b :CtrlPBuffer<CR>
 
 " TAGS {{{1
 nnoremap <C-[> :pop<CR>

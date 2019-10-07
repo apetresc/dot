@@ -1,6 +1,8 @@
 {
-  "python.jediEnabled": true,
+  "python.jediEnabled": false,
   "python.formatting.autopep8Args": ["--max-line-length", "100"],
+  "list.source.symbols.defaultOptions": ["--number-select"],
+  "list.source.outline.defaultOptions": ["--number-select"],
   "languageserver": {
     "metals": {
       "command": "metals-vim",
