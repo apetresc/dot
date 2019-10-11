@@ -96,6 +96,7 @@ ws-icon-11 = lutris;
 ws-icon-12 = docker;
 ws-icon-13 = go;
 ws-icon-14 = news;
+ws-icon-15 = java;
 
 label-mode-padding = 2
 label-mode-foreground = #000
