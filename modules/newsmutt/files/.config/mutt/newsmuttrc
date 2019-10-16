@@ -124,5 +124,6 @@ bind index m post-message
 macro index h "<change-newsgroup>?"
 macro browser ga "<toggle-subscribed>"
 bind browser r reload-active
+macro index I <clear-flag>N<untag-pattern>.<enter>
 
 folder-hook . 'push <collapse-all>'
