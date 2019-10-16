@@ -97,6 +97,7 @@ ws-icon-12 = docker;
 ws-icon-13 = go;
 ws-icon-14 = news;
 ws-icon-15 = java;
+ws-icon-16 = music;
 
 label-mode-padding = 2
 label-mode-foreground = #000
