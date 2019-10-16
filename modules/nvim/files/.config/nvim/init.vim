@@ -47,6 +47,7 @@ map Y y$
 call plug#begin('~/.vim/plugged')
 Plug 'jnurmine/zenburn'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
@@ -145,12 +146,17 @@ nnoremap <silent> <leader>s :<C-u>CocList outline<CR>
 nnoremap <silent> <leader>w :<C-u>CocList --interactive symbols<CR>
 
 
-" VISTA {{{1
+" VISTA {{{2
 let g:vista_icon_indent = ["▸ ", ""]
 let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
 let g:vista_echo_cursor_strategy = 'scroll'
 nmap <C-s> :Vista!!<CR>
+
+" GIT {{{2
+let g:gitgutter_preview_win_floating = 0
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 " COLORS {{{1
 set t_Co=256
