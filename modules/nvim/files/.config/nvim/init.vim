@@ -158,6 +158,7 @@ nmap <C-s> :Vista!!<CR>
 let g:gitgutter_preview_win_floating = 0
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
+nmap <leader>gs :Gstatus<CR>
 
 " COLORS {{{1
 set t_Co=256
