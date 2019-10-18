@@ -12,3 +12,4 @@ docker-compose.override.yml
 
 tags
 Session.vim
+.nvimrc

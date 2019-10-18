@@ -30,6 +30,7 @@ set wrap
 set number relativenumber
 set nu rnu
 set hidden
+set exrc
 
 " Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
