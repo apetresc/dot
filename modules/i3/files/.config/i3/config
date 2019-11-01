@@ -202,15 +202,15 @@ bindsym $mod+r mode "resize"
 
 hide_edge_borders smart
 # i3-gaps config section
-# gaps inner 20
-# gaps outer 30
+gaps inner 20
+gaps outer 30
 
-# bindsym $mod+plus gaps inner current minus 5 ; gaps outer current minus 7
-# bindsym $mod+minus gaps inner current plus 5 ; gaps outer current plus 7
+bindsym $mod+plus gaps inner current minus 5 ; gaps outer current minus 7
+bindsym $mod+minus gaps inner current plus 5 ; gaps outer current plus 7
 
 
-# smart_gaps on
-# smart_borders no_gaps
+smart_gaps on
+smart_borders no_gaps
 # ======================
 
 #exec --no-startup-id xautolock -time 10 -locker "$HOME/bin/i3lock-extra -p -s" &
