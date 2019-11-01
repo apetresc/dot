@@ -1,0 +1,7 @@
+/* vim: set ft=css */
+
+configuration {
+  font: "Terminus 16";
+  theme: "~/.cache/wal/colors-rofi-dark.rasi";
+  show-icons: true;
+}
