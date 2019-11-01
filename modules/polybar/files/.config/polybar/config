@@ -3,7 +3,7 @@ background = #da222222
 background-alt = #da444444
 foreground = ${xrdb:color7:#dfdfdf}
 foreground-alt = #55
-primary = #ffb52a
+primary = ${xrdb:color0:#000000}
 secondary = #e60053
 alert = #bd2c40
 color1 = ${xrdb:color1:#000000}
@@ -30,9 +30,9 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 overline-size = 2
-overline-color = #f00
+overline-color = #ff0000
 underline-size = 2
-underline-color = #00f
+underline-color = #0000ff
 
 border-bottom-size = 1
 border-bottom-color = #333
