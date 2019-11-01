@@ -24,22 +24,31 @@ new_window pixel 2
 new_float pixel 2
 
 # Hybrid colors
-set $back               #1d1F21
-set $black              #282A2E
-set $grey               #373B41
-set $lightgrey          #707880
-set $white              #C5C8C6
-set $yellow             #F0C674
-set $red                #CC6666
-set $darkred            #A54242
-set $green              #B5BD56
+set_from_resource $fg i3wm.color7 #C5C8C6
+set_from_resource $bg i3wm.color2 #262626
+set_from_resource $grey         i3wm.color0  #262626
+set_from_resource $red          i3wm.color1  #a54242
+set_from_resource $yellow       i3wm.color2  #8c9440
+set_from_resource $green        i3wm.color3  #de935f
+set_from_resource $blue         i3wm.color4  #5f819d
+set_from_resource $magenta      i3wm.color5  #85678f
+set_from_resource $cyan         i3wm.color6  #5e8d87
+set_from_resource $white        i3wm.color7  #c7c7c7
+set_from_resource $lightgrey    i3wm.color8  #373b41
+set_from_resource $lightred     i3wm.color9  #cc6666
+set_from_resource $lightyellow  i3wm.color10 #b5bd68
+set_from_resource $lightgreen   i3wm.color11 #f0c674
+set_from_resource $lightblue    i3wm.color12 #81a2be
+set_from_resource $lightmagenta i3wm.color13 #b294bb
+set_from_resource $lightcyan    i3wm.color14 #8abeb7
+set_from_resource $lightwhite   i3wm.color15 #c5c8c6
 
-#class                  border      backgr.     text        split
-client.focused          $green     $green       $black      $red
-client.focused_inactive $grey       $grey       $lightgrey  $grey
-client.unfocused        $grey       $grey       $lightgrey  $grey
-client.urgent           $red        $red        $black      $red
-client.background       $back
+#class                  border      backgr.     text        split  child_border
+client.focused          $green     $green       $black      $red   $green
+client.focused_inactive $grey       $grey       $lightgrey  $grey  $grey
+client.unfocused        $grey       $grey       $lightgrey  $grey  $grey
+client.urgent           $red        $red        $black      $red   $red
+client.background       $bg
 
 
 # ----------------
