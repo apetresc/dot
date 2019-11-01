@@ -47,6 +47,7 @@ map Y y$
 " PLUGINS {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'jnurmine/zenburn'
+Plug 'dylanaraps/wal.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
@@ -61,6 +62,7 @@ Plug 'benmills/vimux'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/promptline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'chrisbra/Colorizer'
 Plug 'godlygeek/tabular'
@@ -162,11 +164,8 @@ nmap <leader>gs :Gstatus<CR>
 
 " COLORS {{{1
 set t_Co=256
-set termguicolors
 set colorcolumn=100
-
-let g:zenburn_high_Contrast=0
-color zenburn
+colorscheme wal
 
 " FILETYPES {{{1
 autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
