@@ -146,28 +146,54 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+#bindsym $mod+1 workspace number 1
+#bindsym $mod+2 workspace number 2
+#bindsym $mod+3 workspace number 3
+#bindsym $mod+4 workspace number 4
+#bindsym $mod+5 workspace number 5
+#bindsym $mod+6 workspace number 6
+#bindsym $mod+7 workspace number 7
+#bindsym $mod+8 workspace number 8
+#bindsym $mod+9 workspace number 9
+#bindsym $mod+0 workspace number 10
+
+# switch to workspace (experimental F-key version)
+bindsym F1 workspace number 1
+bindsym F2 workspace number 2
+bindsym F3 workspace number 3
+bindsym F4 workspace number 4
+bindsym F5 workspace number 5
+bindsym F6 workspace number 6
+bindsym F7 workspace number 7
+bindsym F8 workspace number 8
+bindsym F9 workspace number 9
+bindsym F10 workspace number 10
+bindsym F11 workspace number 11
+bindsym F12 workspace number 12
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+#bindsym $mod+Shift+1 move container to workspace number 1
+#bindsym $mod+Shift+2 move container to workspace number 2
+#bindsym $mod+Shift+3 move container to workspace number 3
+#bindsym $mod+Shift+4 move container to workspace number 4
+#bindsym $mod+Shift+5 move container to workspace number 5
+#bindsym $mod+Shift+6 move container to workspace number 6
+#bindsym $mod+Shift+7 move container to workspace number 7
+#bindsym $mod+Shift+8 move container to workspace number 8
+#bindsym $mod+Shift+9 move container to workspace number 9
+#bindsym $mod+Shift+0 move container to workspace number 10
+
+# move focused container to workspace
+bindsym Shift+F1 move container to workspace number 1
+bindsym Shift+F2 move container to workspace number 2
+bindsym Shift+F3 move container to workspace number 3
+bindsym Shift+F4 move container to workspace number 4
+bindsym Shift+F5 move container to workspace number 5
+bindsym Shift+F6 move container to workspace number 6
+bindsym Shift+F7 move container to workspace number 7
+bindsym Shift+F8 move container to workspace number 8
+bindsym Shift+F9 move container to workspace number 9
+bindsym Shift+F10 move container to workspace number 10
 
 # rename current workspace
 bindsym $mod+i exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'New name: '
