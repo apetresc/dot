@@ -196,7 +196,7 @@ bindsym Shift+F9 move container to workspace number 9
 bindsym Shift+F10 move container to workspace number 10
 
 # rename current workspace
-bindsym $mod+i exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'New name: '
+bindsym $mod+i exec --no-startup-id i3-input -f 'terminus 9' -F 'rename workspace to "%s"' -P 'New name: '
 
 bindsym $mod+Shift+x exec --no-startup-id "~/bin/i3lock-extra -p -s"
 bindcode 107 exec --no-startup-id "$HOME/.virtualenvs/escrotum/bin/escrotum '%Y-%m-%d-%H.%M.%S.png' -e 'mv $f ~/pic/screenshots && s3cmd -c ~/.s3cfg.personal put --acl-public ~/pic/screenshots/$f s3://screenshot.apetre.sc/ && echo http://screenshot.apetre.sc.s3.amazonaws.com/$f | xclip && xdg-open http://screenshot.apetre.sc/$f'"
