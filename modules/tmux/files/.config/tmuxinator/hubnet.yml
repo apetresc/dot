@@ -1,0 +1,28 @@
+# /home/apetresc/.config/tmuxinator/hubnet.yml
+
+name: hubnet
+root: ~/go/src/github.com/apetresc/hubnet
+pre_window:
+  - export GOPATH="$HOME/go"
+  - export GITHUB_TOKEN=c99fd977854fb3ba89e5b21c5b20fd984a522007
+  - export PATH="$GOPATH/bin:$PATH"
+
+windows:
+  - code:
+      layout: main-horizontal
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - if [[ -f Session.vim ]]; then vim -S Session.vim ; else vim . ; fi
+        - ls
+  - server:
+      root: ~/tmp/hubnet
+      layout: main-horizontal
+      panes:
+        - sqlite3 hubnet.db
+        - hubnet
+  - client:
+      root: ~/tmp/hubnet
+      panes:
+        - ls
