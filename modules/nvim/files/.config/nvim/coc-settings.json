@@ -23,6 +23,11 @@
            "directory": "/tmp/ccls"
          }
        }
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
     }
   }
 }
