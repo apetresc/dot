@@ -69,6 +69,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-unimpaired'
 Plug 'liuchengxu/vista.vim'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " TMUX-NAVIGATOR {{{2
