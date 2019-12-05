@@ -104,19 +104,19 @@ label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = %index% %icon%
+label-focused = %icon% %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 2
 
-label-unfocused = %index% %icon%
+label-unfocused = %icon% %name%
 label-unfocused-padding = 2
 
-label-urgent = %index% %icon%!
+label-urgent = %icon% %name%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-visible = %index% %icon%
+label-visible = %icon% %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = 2
