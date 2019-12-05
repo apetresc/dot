@@ -1,6 +1,6 @@
 [colors]
-background = #da222222
-background-alt = #da444444
+background = ${xrdb:color0:#da222222}
+background-alt = ${xrdb:color8:#da444444}
 foreground = ${xrdb:color7:#dfdfdf}
 foreground-alt = #55
 primary = ${xrdb:color0:#000000}
