@@ -49,7 +49,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'jnurmine/zenburn'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dylanaraps/wal.vim'
+Plug '5long/pytest-vim-compiler'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -105,7 +107,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " VIM-TEST {{{2
-let test#strategy = "vimux"
+let test#strategy = "make"
+let g:dispatch_compilers = {}
+let g:dispatch_compilers['python'] = 'pytest'
 nmap <silent> tf :TestFile<CR>
 nmap <silent> tt :TestLast<CR>
 nmap <silent> ta :TestSuite<CR>
