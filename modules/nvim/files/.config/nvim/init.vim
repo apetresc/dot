@@ -22,6 +22,7 @@
 " MISC {{{1
 set nocompatible
 syntax enable
+filetype on
 filetype plugin on
 
 let mapleader=","
@@ -50,6 +51,7 @@ Plug 'jnurmine/zenburn'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dylanaraps/wal.vim'
 Plug '5long/pytest-vim-compiler'
+Plug 'alfredodeza/pytest.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'airblade/vim-gitgutter'
