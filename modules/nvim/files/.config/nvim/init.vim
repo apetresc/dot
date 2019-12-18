@@ -47,6 +47,7 @@ map Y y$
 " PLUGINS {{{1
 call plug#begin('~/.vim/plugged')
 Plug 'jnurmine/zenburn'
+Plug 'altercation/vim-colors-solarized'
 Plug 'dylanaraps/wal.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -166,7 +167,19 @@ nmap <leader>gs :Gstatus<CR>
 " COLORS {{{1
 set t_Co=256
 set colorcolumn=100
-colorscheme wal
+if $COLOR_SCHEME_TYPE == "light"
+  set background=light
+endif
+if !empty($COLOR_SCHEME)
+  if $COLOR_SCHEME == "solarized"
+    let g:solarized_termtrans=1
+    colorscheme solarized
+  elseif $COLOR_SCHEME == "zenburn"
+    colorscheme zenburn
+  elseif $COLOR_SCHEME == "pywal"
+    colorscheme wal
+  endif
+endif
 
 " FILETYPES {{{1
 autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
