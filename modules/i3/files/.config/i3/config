@@ -277,6 +277,6 @@ bar {
 }
 
 #exec --no-startup-id xautolock -time 10 -locker "$HOME/bin/i3lock-extra -p -s" &
-#exec_always --no-startup-id $HOME/bin/launch_compton.sh
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id unclutter --timeout 1 -b
+#exec_always --no-startup-id $HOME/.local/bin/launch_picom.sh
