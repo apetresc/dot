@@ -64,8 +64,6 @@ Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
 Plug 'janko/vim-test'
 Plug 'benmills/vimux'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -171,13 +169,6 @@ let g:gitgutter_preview_win_floating = 0
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 nmap <leader>gs :Gstatus<CR>
-
-" ULTISNIPS {{{2
-"let g:UltiSnipsExpandTrigger="<c-x>"
-"" let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsSnippetsDir = $HOME."/.config/UltiSnips"
-"let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.config/UltiSnips']
-"let g:UltiSnipsEnableSnipMate = 0
 
 " COLORS {{{1
 set t_Co=256
