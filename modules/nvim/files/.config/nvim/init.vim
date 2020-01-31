@@ -44,6 +44,18 @@ set inccommand=nosplit
 " Make "Y" copy from cursor to end of line, instead of the whole line
 map Y y$
 
+" PROVIDERS {{{1
+set pyx=3
+if filereadable(expand('~/.virtualenvs/pynvim/bin/python'))
+  let g:python_host_prog = '~/.virtualenvs/pynvim/bin/python'
+endif
+if filereadable(expand('~/.virtualenvs/py3nvim/bin/python'))
+  let g:python3_host_prog = '~/.virtualenvs/py3nvim/bin/python'
+endif
+if filereadable(expand('~/.nvm/versions/node/v12.14.1/bin/neovim-node-host'))
+  let g:node_host_prog = expand('~/.nvm/versions/node/v12.14.1/bin/neovim-node-host')
+endif
+
 
 " PLUGINS {{{1
 call plug#begin('~/.vim/plugged')
@@ -115,6 +127,7 @@ nmap <silent> tt :TestLast<CR>
 nmap <silent> ta :TestSuite<CR>
 
 " COC {{{2
+let g:coc_node_path = expand('~/.nvm/versions/node/v12.14.1/bin/node')
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
