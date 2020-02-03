@@ -127,7 +127,11 @@ nmap <silent> tt :TestLast<CR>
 nmap <silent> ta :TestSuite<CR>
 
 " COC {{{2
-let g:coc_node_path = expand('~/.nvm/versions/node/v12.14.1/bin/node')
+if filereadable(expand('~/.nvm/versions/node/v12.14.1/bin/node'))
+  let g:coc_node_path = expand('~/.nvm/versions/node/v12.14.1/bin/node')
+  call coc#config('npm.binPath', expand('~/.nvm/versions/node/v12.14.1/bin/npm'))
+endif
+
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
