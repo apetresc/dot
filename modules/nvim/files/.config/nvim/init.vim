@@ -32,6 +32,7 @@ set number relativenumber
 set nu rnu
 set hidden
 set exrc
+set conceallevel=2
 
 " Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
@@ -186,6 +187,10 @@ let g:gitgutter_preview_win_floating = 0
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
 nmap <leader>gs :Gstatus<CR>
+
+" MARKDOWN {{{2
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
 
 " COLORS {{{1
 set t_Co=256
