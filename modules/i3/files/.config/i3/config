@@ -111,6 +111,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Move to different outputs
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
+
 # split in horizontal orientation
 bindsym $mod+semicolon split h
 
