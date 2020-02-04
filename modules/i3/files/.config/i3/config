@@ -198,6 +198,8 @@ bindsym Shift+F7 move container to workspace number 7
 bindsym Shift+F8 move container to workspace number 8
 bindsym Shift+F9 move container to workspace number 9
 bindsym Shift+F10 move container to workspace number 10
+bindsym Shift+F11 move container to workspace number 11
+bindsym Shift+F12 move container to workspace number 12
 
 # rename current workspace
 bindsym $mod+i exec --no-startup-id i3-input -f 'terminus 9' -F 'rename workspace to "%s"' -P 'New name: '
