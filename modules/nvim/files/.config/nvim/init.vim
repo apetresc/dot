@@ -88,6 +88,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-unimpaired'
 Plug 'liuchengxu/vista.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'powerman/vim-plugin-AnsiEsc'
 call plug#end()
 
 " TMUX-NAVIGATOR {{{2
