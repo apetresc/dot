@@ -38,6 +38,19 @@ set conceallevel=2
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
 " Shortcut to source (reload) THIS configuration file after editing it: (s)ource (c)onfiguraiton
 nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+" Function to grab calendar info
+function! GCal()
+  let caloutput = system("gcalcli --nocolor --lineart unicode agenda --details all")
+
+  " Open a new split and set it up
+  vsplit __GCal_Agenda__
+  normal! ggdG
+  setlocal filetype=gcalcli
+  setlocal buftype=nofile
+
+  call append(0, split(caloutput, '\v\n'))
+endfunction
+command! GCal call GCal()
 
 " live view of substitutions when typing out a replacement
 set inccommand=nosplit
