@@ -254,7 +254,25 @@ smart_gaps on
 smart_borders no_gaps
 # ======================
 
+# Bar settings
+bar {
+  status_command i3status
+  mode hide
+  hidden_state hide
+  modifier $mod
+  position top
+
+  colors {
+    background $grey
+    statusline $fg
+    separator  $white
+
+    focused_workspace $white $blue $fg
+    urgent_workspace  $white $red  $fg
+  }
+}
+
 #exec --no-startup-id xautolock -time 10 -locker "$HOME/bin/i3lock-extra -p -s" &
 #exec_always --no-startup-id $HOME/bin/launch_compton.sh
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id unclutter --timeout 1 -b
