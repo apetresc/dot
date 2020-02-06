@@ -150,7 +150,6 @@ endif
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
-nmap <silent> <C-[> <Plug>(coc-definition)
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :

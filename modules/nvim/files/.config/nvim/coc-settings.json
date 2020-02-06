@@ -3,6 +3,7 @@
   "python.formatting.autopep8Args": ["--max-line-length", "100"],
   "list.source.symbols.defaultOptions": ["--number-select"],
   "list.source.outline.defaultOptions": ["--number-select"],
+  "suggest.autoTrigger": "trigger",
   "languageserver": {
     "metals": {
       "command": "metals-vim",
