@@ -138,9 +138,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
 
-# swap monitors
-bindsym $mod+m exec --no-startup-id "$HOME/.local/bin/swap-monitor.sh"
-
 # Some windows should always float
 for_window [instance="pinentry"] floating enable
 for_window [instance="xboard"] floating enable
