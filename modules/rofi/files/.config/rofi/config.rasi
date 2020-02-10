@@ -2,6 +2,7 @@
 
 configuration {
   font: "Terminus 16";
-  theme: "~/.cache/wal/colors-rofi-dark.rasi";
   show-icons: true;
 }
+
+@import "/usr/share/rofi/themes/Pop-Dark.rasi"
