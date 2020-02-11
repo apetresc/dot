@@ -90,6 +90,9 @@ bindsym $mod+Shift+v exec --no-startup-id "rofi -modi clipboard:greenclip\ print
 # start rofi-emoji
 bindsym $mod+Control+space exec --no-startup-id "rofi -show emoji -modi emoji"
 
+# start btutil
+bindsym $mod+b exec --no-startup-id "rofi -show btutil:$HOME/.local/bin/rofi-btutil"
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
