@@ -207,6 +207,23 @@ let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_no_extensions_in_markdown = 1
 
+" VIM-GO {{{2
+function! ReuseVimGoTerm(cmd) abort
+    for w in nvim_list_wins()
+        if "goterm" == nvim_buf_get_option(nvim_win_get_buf(w), 'filetype')
+            call nvim_win_close(w, v:true)
+            break
+        endif
+    endfor
+    execute a:cmd
+endfunction
+
+let g:go_term_enabled = 1
+let g:go_term_mode = "silent keepalt rightbelow 15 split"
+let g:go_def_reuse_buffer = 1
+
+autocmd FileType go nmap <leader>r :call ReuseVimGoTerm('GoRun')<Return>
+
 " COLORS {{{1
 set t_Co=256
 set colorcolumn=100
