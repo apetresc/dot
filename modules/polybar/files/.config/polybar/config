@@ -98,6 +98,7 @@ ws-icon-14 = news;
 ws-icon-15 = java;
 ws-icon-16 = music;
 ws-icon-17 = steam;
+ws-icon-18 = blender;
 
 label-mode-padding = 2
 label-mode-foreground = #000
