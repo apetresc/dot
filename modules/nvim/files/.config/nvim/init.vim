@@ -55,9 +55,6 @@ command! GCal call GCal()
 " live view of substitutions when typing out a replacement
 set inccommand=nosplit
 
-" Make "Y" copy from cursor to end of line, instead of the whole line
-map Y y$
-
 " PROVIDERS {{{1
 set pyx=3
 if filereadable(expand('~/.virtualenvs/pynvim/bin/python'))
@@ -103,6 +100,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'liuchengxu/vista.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " TMUX-NAVIGATOR {{{2
