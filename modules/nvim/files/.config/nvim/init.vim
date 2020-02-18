@@ -101,6 +101,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'machakann/vim-highlightedyank'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " TMUX-NAVIGATOR {{{2
@@ -221,6 +222,9 @@ let g:go_term_mode = "silent keepalt rightbelow 15 split"
 let g:go_def_reuse_buffer = 1
 
 autocmd FileType go nmap <leader>r :call ReuseVimGoTerm('GoRun')<Return>
+
+" GOYO {{{2
+nnoremap <silent> <leader>z :Goyo<CR>
 
 " COLORS {{{1
 set t_Co=256
