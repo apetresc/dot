@@ -241,6 +241,11 @@ mode "resize" {
         bindsym Up resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
 
+        # Resize gaps
+        bindsym plus gaps inner current minus 5 ; gaps outer current minus 7
+        bindsym minus gaps inner current plus 5 ; gaps outer current plus 7
+
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -252,10 +257,6 @@ hide_edge_borders smart
 # i3-gaps config section
 gaps inner 20
 gaps outer 30
-
-bindsym $mod+plus gaps inner current minus 5 ; gaps outer current minus 7
-bindsym $mod+minus gaps inner current plus 5 ; gaps outer current plus 7
-
 
 smart_gaps on
 smart_borders no_gaps
