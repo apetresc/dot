@@ -33,6 +33,7 @@ set nu rnu
 set hidden
 set exrc
 set conceallevel=2
+set colorcolumn=80
 
 " Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
@@ -228,7 +229,6 @@ nnoremap <silent> <leader>z :Goyo<CR>
 
 " COLORS {{{1
 set t_Co=256
-set colorcolumn=100
 if $COLOR_SCHEME_TYPE == "light"
   set background=light
 endif
