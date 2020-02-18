@@ -9,3 +9,11 @@ setlocal colorcolumn=80
 setlocal formatoptions+=tcqln
 setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^[-*+]\\s\\+
 setlocal nofoldenable
+setlocal spell spelllang=en_us
+
+function! PreviewMarkdown()
+  :! pandoc % | qutebrowser-pipe
+endfunction
+
+nnoremap <buffer> <leader>v :call PreviewMarkdown()<cr>
+
