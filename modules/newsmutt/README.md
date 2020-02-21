@@ -1,24 +1,43 @@
 # Newsmutt
 
-Newsmutt is just my own name for a distinct Neomutt configuration optimized for reading NNTP
-newsgroups rather than email. But it's not actually a program; it's just Neomutt under the hood.
+Newsmutt is just my own name for a distinct slrn, notmuch, and neomutt
+configuration optimized for reading NNTP newsgroups rather than email. But it's
+not actually a program; it's just a system of automations.
 
-## Running
+The goal is to simulate my e-mail workflow as closely as possible. It is driven
+by the appropriately-named `nntpsync` script (in analogy to `mailsync`).
 
-You can use Neomutt's `-F` flag directly:
-```
-$ neomutt -F ~/.config/mutt/newsmuttrc
-```
+  1. **Download raw new articles from the upstream news server**
 
-But I prefer defining it as an alias.
+     This is accomplished through `slrnpull`, which reads the list of groups to
+     fetch (as well as the quantity) from `$HOME/.slrn/slrnpull.conf`. It has
+     the format:
+     ```
+     # NEWSGROUP_NAME MAX_ARTICLES_TO_RETRIEVE   NUMBER_OF_DAYS_BEFORE_EXPIRE
+     default 5000 365
+     gmane.comp.python.general * *
+      ```
+  2. **Convert them to Maildir**
 
-## Configuration
+     This is unfortunately necessary because, although notmuch can parse
+     slrnpull's "numbered spool format", neomutt cannot. So I [found a Ruby
+     script](https://lkml.org/lkml/2019/1/3/620) by Eric Wong (of public-inbox
+     fame) that converts from one to the other (destructively, I might add).
+  3. **Index them with `notmuch new`**
 
-The only thing this module is missing, configuration-wise, is an actual NNTP server. Personally
-I use newsmutt with Gmane most often, so my alias is:
-```
-alias newsmutt='neomutt -F ~/.config/mutt/newsmuttrc -g "news.gmane.org"'
-```
+     I use `$HOME/.news` as the notmuch database root. So far I see no reason to
+     pull the `new->inbox,unread` trick that I do with Gmailieer, because
+     there's no central server that I need to be careful about race conditions
+     with.
+  4. **Read them with neomutt**
 
-I have not really figured out the best way to handle muxing together multiple NNTP servers. I'll
-cross that bridge when I get there.
+     You can use neomutt's `-F` flag directly: 
+     ```
+     $ neomutt -F ~/.config/mutt/newsmuttrc
+     ```
+     But I prefer defining it as an alias.
+
+## TODO
+
+- [ ] Would be very cool to set up [muchsync](http://www.muchsync.org/) so I can
+  sync up read status between computers.

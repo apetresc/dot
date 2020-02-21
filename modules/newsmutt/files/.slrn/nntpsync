@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+# Sync NNTP groups
+
+NOTMUCH_CONFIG="$HOME/.news/.notmuch-config"
+
+# Run only if user logged in (prevent cron errors)
+pgrep -u "$USER" >/dev/null || exit
+# Run only if not already running in other instance
+pgrep -x slrnpull >/dev/null && exit
+
+# Checks for internet connection and set notification script.
+ping -q -c 1 1.1.1.1 > /dev/null || exit
+
+export DISPLAY=:0.0
+
+slrnpull -h news.gmane.io -d "$HOME/.slrn" --no-post
+for d in $(find "$HOME/.slrn/news" -type d -links 2)
+do
+  echo "Converting $d to maildir..."
+  "$HOME/.slrn/slrnspool2maildir" "$d" "$HOME/.news"
+done
+notmuch new 2>/dev/null
+
+#Create a touch file that indicates the time of the last run of mailsync
+touch "$HOME/.slrn/.nntpsynclastrun"

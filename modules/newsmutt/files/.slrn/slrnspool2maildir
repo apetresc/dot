@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require 'socket'
+require 'fileutils'
+require 'mail'
+require 'pathname'
+HOSTNAME = Socket.gethostname
+
+
+usage = "Usage #$0 <spooldir> <maildir>"
+spooldir = ARGV[0] or abort usage
+maildir = ARGV[1] or abort usage
+
+f = base = nil
+nr = 0
+%w(cur new tmp).each { |x| FileUtils.mkpath("#{maildir}/#{x}") }
+Dir.glob("#{spooldir}/*").each do |src|
+  File.file?(src) or next
+  base = File.basename(src)
+  rel = Pathname.new(src)
+                .relative_path_from(File.dirname(__FILE__))
+                .dirname.cleanpath.to_s.split('/').join('_')
+  dest = "#{maildir}/cur/#{Mail.read(src).date.to_time.to_i}_#{rel}_#{base}:2,"
+  begin
+    File.link(src, dest)
+  rescue Errno::EEXIST
+    warn "#{dest} already exists"
+    next
+  ensure
+    File.unlink(src)
+  end
+end
+
