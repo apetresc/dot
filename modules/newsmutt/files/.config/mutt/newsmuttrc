@@ -4,6 +4,7 @@ set realname = "Adrian Petrescu"
 set from = "adrian@apetre.sc"
 set sendmail = "msmtp -a apetresc"
 alias me Adrian Petrescu <adrian@apetre.sc>
+set news_server = "news.gmane.io"
 
 set mailcap_path = ~/.mailcap
 set certificate_file = ~/.cache/mutt/certificates
@@ -106,8 +107,7 @@ macro index A "<limit>all\n" "show all messages (undo limit)"
 bind index,pager + reconstruct-thread
 bind index,pager '`' modify-labels
 
-# Colors
-source ~/.config/mutt/colors/zenburn
+source ~/.config/mutt/colors/colorscheme
 
 # Notmuch config
 set hidden_tags = "inbox,unread,sent"
@@ -119,12 +119,18 @@ tag-transforms "important" "!" \
                "signed" "✎"
 macro index,pager ! "<modify-labels>!important<enter>" "Toggle the 'important' flag"
 
+unignore Newsgroups:
+  ignore Content-Type:
+  ignore Content-Transfer-Encoding:
+set nntp_listgroup = no
+set nntp_load_description = no
 set catchup_newsgroup = no
 set show_new_news = no
 bind index m post-message
-macro index h "<change-newsgroup>?"
+#macro index h "<change-newsgroup>?"
 macro browser ga "<toggle-subscribed>"
 bind browser r check-new
 macro index I <clear-flag>N<untag-pattern>.<enter>
 
+# Collapse all read threads when opening a group
 folder-hook . 'push <collapse-all>'
