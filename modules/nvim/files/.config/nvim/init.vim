@@ -229,6 +229,7 @@ nnoremap <silent> <leader>z :Goyo<CR>
 
 " COLORS {{{1
 set t_Co=256
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 if $COLOR_SCHEME_TYPE == "light"
   set background=light
 endif
