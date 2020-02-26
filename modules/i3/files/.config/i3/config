@@ -212,8 +212,8 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+i exec --no-startup-id i3-input -f 'terminus 9' -F 'rename workspace to "%s"' -P 'New name: '
 
 bindsym $mod+Shift+x exec --no-startup-id "$HOME/.local/bin/i3lock-extra -p -s"
-bindcode 107 exec --no-startup-id "$HOME/.local/bin/escrotum '%Y-%m-%d-%H.%M.%S.png' -e 'mv $f ~/pic/screenshots && s3cmd -c ~/.s3cfg.personal put --acl-public ~/pic/screenshots/$f s3://screenshot.apetre.sc/ && echo http://screenshot.apetre.sc.s3.amazonaws.com/$f | xclip && xdg-open http://screenshot.apetre.sc/$f'"
-bindcode --release Shift+107 exec "$HOME/.local/bin/escrotum '%Y-%m-%d-%H.%M.%S.png' -s -e 'mv $f ~/pic/screenshots && s3cmd -c ~/.s3cfg.personal put --acl-public ~/pic/screenshots/$f s3://screenshot.apetre.sc/ && echo http://screenshot.apetre.sc.s3.amazonaws.com/$f | xclip && xdg-open http://screenshot.apetre.sc/$f'"
+bindcode 107 exec --no-startup-id "d=$(date +'%Y-%m-%d-%H.%M.%S') ; f=~/pic/screenshots/${d}.png; maim -u $f && s3cmd -c ~/.s3cfg.personal put --acl-public $f s3://screenshot.apetre.sc/ && echo http://screenshot.apetre.sc/${d}.png | xclip && xdg-open http://screenshot.apetre.sc/${d}.png"
+bindcode --release Shift+107 exec --no-startup-id "d=$(date +'%Y-%m-%d-%H.%M.%S') ; f=~/pic/screenshots/${d}.png; maim -u -s | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage $f && s3cmd -c ~/.s3cfg.personal put --acl-public $f s3://screenshot.apetre.sc/ && echo http://screenshot.apetre.sc/${d}.png | xclip && xdg-open http://screenshot.apetre.sc/${d}.png"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
