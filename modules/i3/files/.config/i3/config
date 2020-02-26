@@ -250,17 +250,10 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-hide_edge_borders smart
-# i3-gaps config section
-gaps inner 20
-gaps outer 30
+hide_edge_borders none
 
-smart_gaps on
-smart_borders no_gaps
-# ======================
 
 # Bar settings
 bar {
