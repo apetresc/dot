@@ -1,0 +1,38 @@
+session_name: proxmox
+windows:
+- focus: 'true'
+  layout: c9df,239x75,0,0,2
+  options:
+    automatic-rename: 'off'
+  panes:
+  - pane
+  start_directory: /home/apetresc/src/rubikloud/terraform
+  window_name: terraform
+- layout: c9e0,239x75,0,0,3
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: zsh
+  start_directory: /home/apetresc/src/rubikloud
+  window_name: provider
+- layout: c9e1,239x75,0,0,4
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: zsh
+  start_directory: /home/apetresc/.local/share/yada/apetresc/dot-private
+  window_name: ssh
+- layout: e8e4,239x75,0,0[239x54,0,0,5,239x20,0,55,46]
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command:
+    - cd /home/apetresc
+    - nvim
+  - shell_command:
+    - cd /home/apetresc/src/rubikloud/terraform
+    - zsh
+  window_name: notes

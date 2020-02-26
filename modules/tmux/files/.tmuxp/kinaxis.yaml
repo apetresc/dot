@@ -1,0 +1,35 @@
+session_name: kinaxis
+windows:
+- layout: 9b73,191x58,0,0[191x27,0,0,57,191x30,0,28,58]
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: zsh
+  - zsh
+  start_directory: /home/apetresc
+  window_name: proxy
+- layout: e7d4,191x58,0,0,63
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: zsh
+  start_directory: /home/apetresc/src/rubikloud/dp-etlconfig-rxlca/configs/etl
+  window_name: etl
+- layout: 67da,191x58,0,0,59
+  options:
+    automatic-rename: 'off'
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  start_directory: /home/apetresc/src/rubikloud/PromoManager
+  window_name: model
+- focus: 'true'
+  layout: e7d7,191x58,0,0,66
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: zsh
+  start_directory: /home/apetresc
+  window_name: zsh

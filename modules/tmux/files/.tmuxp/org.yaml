@@ -1,0 +1,13 @@
+session_name: org
+windows:
+- focus: 'true'
+  layout: main-vertical
+  options: {}
+  panes:
+  - shell_command:
+    - neomutt
+  - focus: 'true'
+    shell_command:
+    - cd /home/apetresc/org/notes
+    - vim
+  window_name: mail

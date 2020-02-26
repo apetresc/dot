@@ -1,0 +1,24 @@
+session_name: yada
+windows:
+- layout: main-horizontal
+  start_directory: ~/src/personal/yada
+  options:
+    main-pane-height: 50
+  shell_command_before:
+    - '[ -d .venv ] && source .venv/bin/activate'
+  panes:
+  - if [[ -f Session.vim ]]; then vim -S Session.vim ; else vim . ; fi
+  - pytest
+  window_name: editor
+- layout: main-horizontal
+  start_directory: ~/.local/share/yada/apetresc/dot
+  panes:
+  - lf .
+  - git st
+  window_name: dot
+- layout: main-horizontal
+  start_directory: ~/.local/share/yada/apetresc/dot-private
+  panes:
+  - lf .
+  - git st
+  window_name: dot-private
