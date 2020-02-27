@@ -44,7 +44,7 @@ function! GCal()
   let caloutput = system("gcalcli --nocolor --lineart unicode agenda --details all")
 
   " Open a new split and set it up
-  vsplit __GCal_Agenda__
+  split __GCal_Agenda__
   normal! ggdG
   setlocal filetype=gcalcli
   setlocal buftype=nofile
