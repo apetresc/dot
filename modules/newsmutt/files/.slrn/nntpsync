@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # Sync NNTP groups
 
-NOTMUCH_CONFIG="$HOME/.news/.notmuch-config"
+export NOTMUCH_CONFIG="$HOME/.news/.notmuch-config"
 
 # Run only if user logged in (prevent cron errors)
 pgrep -u "$USER" >/dev/null || exit
@@ -14,7 +14,7 @@ ping -q -c 1 1.1.1.1 > /dev/null || exit
 export DISPLAY=:0.0
 
 slrnpull -h news.gmane.io -d "$HOME/.slrn" --no-post
-for d in $(find "$HOME/.slrn/news" -type d -links 2)
+for d in $(find "$HOME/.slrn/news" -type d)
 do
   echo "Converting $d to maildir..."
   "$HOME/.slrn/slrnspool2maildir" "$d" "$HOME/.news"
