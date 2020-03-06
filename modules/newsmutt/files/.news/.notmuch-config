@@ -50,7 +50,7 @@ primary_email=adrian@apetre.sc
 #
 
 [new]
-tags=unread;inbox;
+tags=new
 ignore=.notmuch-config
 
 # Search configuration

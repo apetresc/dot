@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "generating mailboxes..."
+
+NOTMUCH_CONFIG=~/.news/.notmuch-config notmuch search --output=tags '*' | grep -v "inbox\|unread\|signed\|attachment\|replied\|from_me" | sed 's/.*/virtual-mailboxes "&" "notmuch:\/\/?query=tag:&"\nfolder-hook & "set hidden_tags=\\"&,unread,sent,signed\\""/g' > ~/.config/mutt/newsmutt.mailboxes
