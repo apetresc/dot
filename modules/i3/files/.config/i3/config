@@ -44,10 +44,10 @@ set_from_resource $lightcyan    i3wm.color14 #8abeb7
 set_from_resource $lightwhite   i3wm.color15 #c5c8c6
 
 #class                  border      backgr.     text        split  child_border
-client.focused          $green     $green       $black      $red   $green
+client.focused          $green     $green       $grey       $red   $green
 client.focused_inactive $grey       $grey       $lightgrey  $grey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey  $grey
-client.urgent           $red        $red        $black      $red   $red
+client.urgent           $red        $red        $grey       $red   $red
 client.background       $bg
 
 
