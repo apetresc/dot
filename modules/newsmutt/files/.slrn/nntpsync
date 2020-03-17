@@ -19,7 +19,8 @@ do
   echo "Converting $d to maildir..."
   "$HOME/.slrn/slrnspool2maildir" "$d" "$HOME/.news"
 done
-notmuch new 2>/dev/null
+notmuch new
+afew --tag --new
 
 #Create a touch file that indicates the time of the last run of mailsync
 touch "$HOME/.slrn/.nntpsynclastrun"
