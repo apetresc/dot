@@ -1,0 +1,27 @@
+#!/bin/bash
+
+TARGET_RATIO_WIDTH=1920
+TARGET_RATIO_HEIGHT=1080
+
+window=$(i3-msg -t get_tree | jq '.. | select(.focused?)')
+w=$(echo $window | jq '.rect.width')
+h=$(echo $window | jq '.rect.height')
+adjh=$(echo "(($TARGET_RATIO_HEIGHT * $w) / $TARGET_RATIO_WIDTH - $h)/1" | bc)
+adjw=$(echo "($TARGET_RATIO_WIDTH * $h) / $TARGET_RATIO_HEIGHT - $w" | bc)
+
+if [[ $w*$TARGET_RATIO_HEIGHT -gt $TARGET_RATIO_WIDTH*$h ]]
+then
+  # Too wide
+  i3-msg resize grow height $(printf "%.0f" $adjh) px || \
+    i3-msg resize shrink width $(printf "$.0f" ${adjw:1}) px
+elif [[ $w*$TARGET_RATIO_HEIGHT -lt $TARGET_RATIO_WIDTH*$h ]]
+then
+  # Too tall
+  i3-msg resize grow width $(printf "%.0f" $adjw) px || \
+    i3-msg resize shrink height $(printf "%.0f" ${adjh:1}) px
+else
+  # Just right
+  :
+fi
+
+# vim: set ft=sh :

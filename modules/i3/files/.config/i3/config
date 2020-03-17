@@ -241,6 +241,9 @@ mode "resize" {
         bindsym Up resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
 
+        # Match screen aspect ratio
+        bindsym $mod+plus exec --no-startup-id "$HOME/.local/bin/i3-fit-aspect-ratio"
+
         # Resize gaps
         bindsym plus gaps inner current minus 5 ; gaps outer current minus 7
         bindsym minus gaps inner current plus 5 ; gaps outer current plus 7
