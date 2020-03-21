@@ -110,11 +110,13 @@ set header_cache="$HOME/.cache/newsmutt/"
 
 bind index,pager + entire-thread
 bind index,pager '`' modify-labels
+bind browser h noop
 
 unmailboxes *
 macro index,pager e "<modify-labels>-inbox<enter><sync-mailbox>" "archive"
 macro index,pager '#' "<modify-labels>-inbox +trash<enter><sync-mailbox>" "trash"
 macro index o "<shell-escape>NOTMUCH_CONFIG=~/.news/.notmuch-config muchsync gauss -C ~/.news/.notmuch-config<enter>" "sync new posts"
+macro index h "<change-folder>?"
 
 # Sending
 set realname = "Adrian Petrescu"
