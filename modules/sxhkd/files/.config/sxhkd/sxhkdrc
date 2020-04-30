@@ -1,0 +1,45 @@
+XF86MonBrightnessUp
+  xbacklight -inc 10
+
+XF86MonBrightnessDown
+  xbacklight -dec 10
+
+XF86AudioMute
+  pulsemixer --toggle-mute && dunstify -r 654 -t 2500 "Volume" "Volume $([[ $(pulsemixer --get-mute) == "0" ]] && echo un-)muted"
+
+XF86Audio{Raise,Lower}Volume
+  pulsemixer --change-volume {+,-}5 && dunstify -r 654 -t 2500 "Volume" "Volume set to $(pulsemixer --get-volume | cut -d' ' -f1)%"
+
+XF86AudioPlay
+  mpc toggle || playerctl play-pause
+
+XF86Audio{Prev,Next}
+  mpc {prev,next} || playerctl {next,previous}
+
+super + backslash
+  XDG_SESSION_TYPE=x11 bwpyro -t 86400 -- -width 50
+
+super + Return
+  st
+
+super + space
+  rofi -m -4 -show drun
+
+super + control + space
+  rofi -show emoji -modi emoji
+
+super + c
+  $HOME/.local/bin/togglecam
+
+super + m
+  st -e ncmpcpp
+
+super + n
+  find $HOME/org -type f | dmenu | xargs -I\{\} st -e $EDITOR \{\}
+
+F7
+  d=$(date +'%Y-%m-%d-%H.%M.%S') ; f=~/pic/screenshots/${d}.png; maim -u $f && s3cmd -c ~/.s3cfg.personal put --acl-public $f s3://screenshot.apetre.sc/ && echo http://screenshot.apetre.sc/${d}.png | xclip && xdg-open http://screenshot.apetre.sc/${d}.png
+
+shift + F7
+  d=$(date +'%Y-%m-%d-%H.%M.%S') ; f=~/pic/screenshots/${d}.png; maim -u -s | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage $f && s3cmd -c ~/.s3cfg.personal put --acl-public $f s3://screenshot.apetre.sc/ && echo http://screenshot.apetre.sc/${d}.png | xclip && xdg-open http://screenshot.apetre.sc/${d}.png
+
