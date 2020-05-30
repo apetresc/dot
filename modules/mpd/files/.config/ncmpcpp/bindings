@@ -439,8 +439,8 @@
 #def_key "l"
 #  show_lyrics
 #
-#def_key "ctrl-v"
-#  select_range
+def_key "v"
+  select_range
 #
 #def_key "v"
 #  reverse_selection
@@ -547,8 +547,8 @@
 #def_key "f"
 #	find_item_forward
 
-def_key "+"
-    show_clock
+def_key "-"
+    volume_down
 def_key "="
     volume_up
 
@@ -563,11 +563,11 @@ def_key "ctrl-u"
 def_key "ctrl-d"
     page_down
 #push_characters "jjjjjjjjjjjjjjj"
-def_key "u"
-    page_up
+#def_key "u"
+#    page_up
 #push_characters "kkkkkkkkkkkkkkk"
-def_key "d"
-    page_down
+#def_key "d"
+#    page_down
 #push_characters "jjjjjjjjjjjjjjj"
 def_key "h"
     previous_column
@@ -601,8 +601,8 @@ def_key "m"
   toggle_media_library_columns_mode
 def_key "t"
   show_tag_editor
-def_key "v"
-  show_visualizer
+#def_key "v"
+#  show_visualizer
 def_key "G"
   move_end
 def_key "g"
@@ -618,7 +618,11 @@ def_key "f"
   show_browser
 def_key "f"
   change_browse_mode
-def_key "x"
+def_key "d"
   delete_playlist_items
 def_key "P"
   show_playlist
+def_key "x"
+  select_item
+  scroll_down
+

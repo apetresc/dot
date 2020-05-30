@@ -22,6 +22,7 @@
 #
 ##### connection settings #####
 #
+#mpd_host = 192.168.2.100
 mpd_host = localhost
 #
 mpd_port = 6600
@@ -327,11 +328,11 @@ mpd_music_dir = ~/snd
 ##
 #user_interface = classic
 #
-#data_fetching_delay = yes
+data_fetching_delay = no
 #
 ## Available values: artist, album_artist, date, genre, composer, performer.
 ##
-#media_library_primary_tag = artist
+media_library_primary_tag = album_artist
 #
 #media_library_albums_split_by_date = yes
 #
@@ -399,7 +400,7 @@ mpd_music_dir = ~/snd
 ## Note: You can define startup slave screen by choosing screen from the list
 ## above or an empty value for no slave screen.
 ##
-#startup_slave_screen = ""
+startup_slave_screen = "browser"
 #
 #startup_slave_screen_focus = no
 #
