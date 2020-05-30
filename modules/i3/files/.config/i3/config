@@ -14,7 +14,7 @@ set $mod Mod1
 # ---------------
 # Fonts
 # ---------------
-font pango:Terminus 14px
+font pango:mono 14px
 
 
 # ---------------
