@@ -1,7 +1,7 @@
 /* vim: set ft=css */
 
 configuration {
-  font: "Terminus 16";
+  font: "mono 16";
   show-icons: true;
 }
 
