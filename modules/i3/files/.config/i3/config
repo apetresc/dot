@@ -76,7 +76,7 @@ bindsym $mod+space exec --no-startup-id "rofi -m -4 -show drun"
 bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
 # start bitwarden
-bindsym $mod+backslash exec --no-startup-id "bwmenu -- -width 50"
+bindsym $mod+backslash exec --no-startup-id "$HOME/.local/bin/bwmenu -- -width 50"
 
 # start clerk
 # bindsym $mod+m exec --no-startup-id "clerk"
@@ -92,6 +92,9 @@ bindsym $mod+Control+space exec --no-startup-id "rofi -show emoji -modi emoji"
 
 # start btutil
 bindsym $mod+b exec --no-startup-id "rofi -show btutil:$HOME/.local/bin/rofi-btutil"
+
+# toggle webcam
+bindsym $mod+c exec --no-startup-id "$HOME/.local/bin/togglecam"
 
 # change focus
 bindsym $mod+h focus left
@@ -144,6 +147,9 @@ bindsym Ctrl+space focus mode_toggle
 # Some windows should always float
 for_window [instance="pinentry"] floating enable
 for_window [instance="xboard"] floating enable
+for_window [instance="xawtv"] exec "$HOME/.local/bin/i3-fit-aspect-ratio"
+for_window [instance="xawtv"] border pixel 15
+for_window [class="mpv"] exec "$HOME/.local/bin/i3-fit-aspect-ratio"
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 
 # focus the parent container
