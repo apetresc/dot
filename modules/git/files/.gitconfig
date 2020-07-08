@@ -65,3 +65,5 @@
 	insteadOf = "https://github.com/"
 
 # vim: noai:noexpandtab:ts=4:sw=4
+[pull]
+	rebase = false
