@@ -33,6 +33,8 @@
 	user = apetresc
 [push]
 	default = current
+[pull]
+	rebase = false
 [mergetool]
 	keepBackup = true
 	prompt = false
@@ -65,5 +67,3 @@
 	insteadOf = "https://github.com/"
 
 # vim: noai:noexpandtab:ts=4:sw=4
-[pull]
-	rebase = false
