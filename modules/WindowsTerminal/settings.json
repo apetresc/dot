@@ -58,9 +58,18 @@
                 "hidden": false,
                 "name": "Gentoo",
                 "source": "Windows.Terminal.Wsl",
-                "icon": "C:/Users/apetr/Pictures/gentoo.webp",
+                "icon": "%USERPROFILE%/.local/share/terminal/icons/gentoo.webp",
                 "colorScheme": "High-Contrast Zenburn",
                 "startingDirectory": "//wsl$/Gentoo/home/apetresc"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl",
+                "icon": "%USERPROFILE%/.local/share/terminal/icons/ubuntu.png",
+                "colorScheme": "High-Contrast Zenburn",
+                "startingDirectory": "//wsl$/Ubuntu/home/apetresc"
             }
         ]
     },
