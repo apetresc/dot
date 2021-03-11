@@ -2,6 +2,8 @@
 	name = Adrian Petrescu
 	email = adrian@apetre.sc
 	signingkey = 3700391F!
+[init]
+	defaultBranch = master
 [sendemail]
 	smtpserver = /usr/bin/msmtp
 	smtpserveroption=-a
