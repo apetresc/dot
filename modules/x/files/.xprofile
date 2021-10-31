@@ -1,5 +1,16 @@
 #!/bin/bash
 
+_address="$(systemctl --user show-environment | grep -E '^DBUS_SESSION_BUS_ADDRESS=')"
+if [ $? -eq 0 ]; then
+  export "$_address"
+fi
+
+systemctl --user import-environment DISPLAY XAUTHORITY
+
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+    dbus-update-activation-environment DISPLAY XAUTHORITY
+fi
+
 if [[ -f "$HOME/.xprofile.local" ]]; then
   source ~/.xprofile.local
 fi
