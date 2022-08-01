@@ -261,6 +261,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
+mode  "Passthrough Mode - Press Alt+F12 to exit" {
+        bindsym $mod+F12 mode "default"
+}
+bindsym $mod+F12 mode "Passthrough Mode - Press Alt+F12 to exit"
+
 hide_edge_borders none
 
 
