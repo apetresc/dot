@@ -145,4 +145,4 @@ configuration {
   }
 }
 
-@theme "Pop-Dark"
+@theme "Monokai"
