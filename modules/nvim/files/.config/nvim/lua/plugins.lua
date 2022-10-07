@@ -50,10 +50,16 @@ return require("packer").startup(function(use)
     "neovim/nvim-lspconfig"
   }
   require("lsp")
-  use "onsails/lspkind-nvim"
   use {
     'nvim-treesitter/nvim-treesitter',
+    requires = { "onsails/lspkind-nvim" },
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
   }
 
   -- Completion
