@@ -55,6 +55,21 @@ return require("packer").startup(function(use)
     requires = { "onsails/lspkind-nvim" },
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
+  -- For these languages, Markdown code blocks will be highlighted as the
+  -- appropriate language.
+  vim.g.markdown_fenced_languages = {
+    'bash=sh',
+    'javascript',
+    'js=javascript',
+    'json=javascript',
+    'typescript',
+    'ts=typescript',
+    'php',
+    'html',
+    'css',
+    'rust',
+    'sql'
+  }
   use {
     'numToStr/Comment.nvim',
     config = function()
