@@ -20,8 +20,9 @@ font pango:mono 14px
 # ---------------
 # Look and Feel
 # ---------------
-new_window pixel 2
-new_float pixel 2
+default_border pixel 2
+default_floating_border pixel 2
+for_window [all] border pixel 2 # workaround for https://github.com/i3/i3/issues/5149
 
 # Hybrid colors
 set_from_resource $fg i3wm.color7 #C5C8C6
