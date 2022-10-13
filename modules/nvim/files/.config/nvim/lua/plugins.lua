@@ -77,6 +77,15 @@ return require("packer").startup(function(use)
     end
   }
 
+  -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    tag = 'release',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
   -- Completion
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
