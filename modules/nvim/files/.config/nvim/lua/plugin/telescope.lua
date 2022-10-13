@@ -11,7 +11,9 @@ require('telescope').setup{
         -- map actions.which_key to <C-h> (default: <C-/>)
         -- actions.which_key shows the mappings for your picker,
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-        ["<C-h>"] = "which_key"
+        ["<C-h>"] = "which_key",
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
       }
     }
   },
@@ -54,6 +56,15 @@ vim.keymap.set('n', '<leader>ec',
   {desc = 'Edit Neovim config directory'})
 
 vim.keymap.set('n', '<C-p>',
+  function()
+    require('telescope.builtin').find_files {
+      prompt_title = "cwd files",
+      cwd = ".",
+    }
+  end,
+  {desc = 'Find files in the cwd'})
+
+vim.keymap.set('n', '<C-S-p>',
   function()
     require('telescope.builtin').git_files()
   end,
