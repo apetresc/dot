@@ -42,7 +42,7 @@ vim.keymap.set('n', '<leader>ec',
     require('telescope.builtin').find_files {
       prompt_title = "~ dotfiles ~",
       shorten_path = false,
-      cwd = "~/.config/nvim",
+      cwd = "~/.local/share/yada/apetresc/dot/modules/nvim/files/.config/nvim",
       width = .25,
 
       layout_strategy = 'horizontal',
