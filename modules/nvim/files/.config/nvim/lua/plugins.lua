@@ -11,18 +11,28 @@ return require("packer").startup(function(use)
   -- Package manager
   use "wbthomason/packer.nvim"
 
+  -- Tmux-specific plugins
   --[[ This plugin allows for seamlessly combining tmux pane navigation with
        neovim pane navigation
   --]]
   use {
     "christoomey/vim-tmux-navigator",
+    cond = "os.getenv('TERM_PROGRAM') == 'tmux'",
+    setup = function() vim.g.tmux_navigator_no_mappings = 1 end,
     config = function()
-      vim.g.tmux_navigator_no_mappings = 1
-      vim.api.nvim_set_keymap("n", "<C-h>", ":TmuxNavigateLeft<CR>", {noremap = false})
-      vim.api.nvim_set_keymap("n", "<C-j>", ":TmuxNavigateDown<CR>", {noremap = false})
-      vim.api.nvim_set_keymap("n", "<C-k>", ":TmuxNavigateUp<CR>", {noremap = false})
-      vim.api.nvim_set_keymap("n", "<C-l>", ":TmuxNavigateRight<CR>", {noremap = false})
-    end
+      vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { silent = true} )
+      vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>", { silent = true} )
+      vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>", { silent = true} )
+      vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>", { silent = true} )
+    end,
+  }
+  use {
+    "preservim/vimux",
+    cond = "os.getenv('TERM_PROGRAM') == 'tmux'",
+    config = function()
+      vim.keymap.set("n", "<F9>", ":VimuxPromptCommand<CR>")
+      vim.keymap.set("n", "<F10>", ":VimuxRunLastCommand<CR>")
+    end,
   }
   --[[ Editorconfig allows for a central place to set style rules for different
        file types. Details at https://editorconfig.org/
@@ -108,9 +118,9 @@ return require("packer").startup(function(use)
   use {
     "scrooloose/nerdtree",
     config = function()
-      vim.api.nvim_set_keymap("n", "<C-Bslash>", ":NERDTreeToggle<CR>", {noremap = false})
+      vim.keymap.set("n", "<C-Bslash>", ":NERDTreeToggle<CR>", { silent = true } )
       -- reveal open buffer in NERDTree
-      vim.api.nvim_set_keymap("n", "<C-t>", ":NERDTreeFind<CR>", {noremap = true})
+      vim.keymap.set("n", "<C-t>", ":NERDTreeFind<CR>", { silent = true })
     end
   }
 
