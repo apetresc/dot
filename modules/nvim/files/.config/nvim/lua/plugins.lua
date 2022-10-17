@@ -17,7 +17,6 @@ return require("packer").startup(function(use)
   --]]
   use {
     "christoomey/vim-tmux-navigator",
-    cond = "os.getenv('TERM_PROGRAM') == 'tmux'",
     setup = function() vim.g.tmux_navigator_no_mappings = 1 end,
     config = function()
       vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { silent = true} )
