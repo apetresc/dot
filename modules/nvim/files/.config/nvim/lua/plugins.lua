@@ -90,6 +90,9 @@ return require("packer").startup(function(use)
     end
   }
 
+  -- Terraform
+  use "hashivim/vim-terraform"
+
   -- Git
   use {
     "lewis6991/gitsigns.nvim",
