@@ -122,6 +122,26 @@ return require("packer").startup(function(use)
     end
   }
 
+  -- Silicon (generate images)
+  use {
+    "krivahtoo/silicon.nvim",
+    run = "./install.sh",
+    config = function()
+      require("silicon").setup({
+        theme = "zenburn",
+        background = "#fff0",
+        shadow = {
+          blur_radius = 30,
+          color = "#000",
+          offset_x = 10,
+          offset_y = 10
+        },
+        line_number = true,
+        round_corner = true
+      })
+    end
+  }
+
   -- Automatically pull Packer if it's not already installed
   if packer_bootstrap then
     require("packer").sync()
