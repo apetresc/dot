@@ -22,13 +22,11 @@
 	tool = vimdiff
 [alias]
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	edit-last-commit = !subl `git diff-tree -r --name-only HEAD HEAD~1`
 	st = status
 	rbranch = branch -a --sort=-committerdate
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
 	revert = checkout --
-	revert-all = checkout -- `git ls-files --modified`
 	cloner = clone --recurse-submodules -j8
 	pullr = clone --recurse-submodules -j8
 [github]
