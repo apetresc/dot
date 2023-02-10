@@ -2,7 +2,7 @@ if not pcall(require, "lspconfig") then
   return
 end
 
-function on_attach(_, bufnr)
+function bind_common_keys(_, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', '<c-]>', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -35,7 +35,7 @@ mason_lspconfig.setup()
 mason_lspconfig.setup_handlers({
   function (server_name)
     require("lspconfig")[server_name].setup {
-      on_attach = on_attach,
+      on_attach = bind_common_keys,
     }
   end,
   ["rust_analyzer"] = function ()
@@ -43,10 +43,12 @@ mason_lspconfig.setup_handlers({
     rt.setup({
       server = {
         on_attach = function(_, bufnr)
+          bind_common_keys(_, bufnr)
+          local bufopts = { noremap = true, silent = true, buffer = bufnr }
           -- Hover actions
-          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+          vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, bufopts)
           -- Code action groups
-          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+          vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, bufopts)
         end,
       },
     })
