@@ -2,6 +2,7 @@
 .editorconfig
 .env
 .vscode/
+.venv/
 
 .idea/
 .factorypath
