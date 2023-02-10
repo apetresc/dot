@@ -52,6 +52,9 @@ return require("packer").startup(function(use)
     config = function() require("plugin.lualine") end,
   }
 
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
+
   -- LSP-related
   use {
     "williamboman/mason.nvim",
@@ -113,6 +116,7 @@ return require("packer").startup(function(use)
     config = function() require("plugin.telescope") end,
   }
 
+  -- Nerdtree and file navigation
   use {
     "scrooloose/nerdtree",
     config = function()
