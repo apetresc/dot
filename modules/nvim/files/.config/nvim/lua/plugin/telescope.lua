@@ -11,7 +11,8 @@ require('telescope').setup{
         ["<C-k>"] = "move_selection_previous",
         ["<C-h>"] = "select_horizontal",
       }
-    }
+    },
+    winblend = 20
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
@@ -66,3 +67,23 @@ vim.keymap.set('n', '<C-S-p>',
   end,
   {desc = 'Find git-controlled files'})
 
+
+vim.keymap.set('n', '<leader>fb',
+  function()
+    require('telescope.builtin').buffers {
+      shorten_path = false
+    }
+  end,
+  {desc = 'Find currently opened buffers'})
+
+vim.keymap.set('n', '<leader>gs',
+  function()
+    require("telescope.builtin").git_status()
+  end,
+  {desc = 'git status'})
+
+vim.keymap.set('n', '<leader>gc',
+  function()
+    require("telescope.builtin").git_commits()
+  end,
+  {desc = 'git commits'})
