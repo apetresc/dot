@@ -48,7 +48,7 @@ return require("packer").startup(function(use)
   -- Lualine
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    requires = 'nvim-tree/nvim-web-devicons',
     config = function() require("plugin.lualine") end,
   }
 
@@ -118,13 +118,61 @@ return require("packer").startup(function(use)
     config = function() require("plugin.telescope") end,
   }
 
-  -- Nerdtree and file navigation
+  -- Diagnostics
   use {
-    "scrooloose/nerdtree",
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
     config = function()
-      vim.keymap.set("n", "<C-Bslash>", ":NERDTreeToggle<CR>", { silent = true } )
-      -- reveal open buffer in NERDTree
-      vim.keymap.set("n", "<C-t>", ":NERDTreeFind<CR>", { silent = true })
+      require("trouble").setup()
+      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+        {silent = true, noremap = true}
+      )
+      vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+        {silent = true, noremap = true}
+      )
+    end
+  }
+
+  
+  -- File navigation
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons'
+    },
+    tag = 'nightly', -- optional, updated every week. (see issue #1193)
+    config = function()
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+      vim.opt.termguicolors = true
+      require("nvim-tree").setup()
+      vim.keymap.set("n", "<C-Bslash>", ":NvimTreeToggle<CR>", { silent = true } )
+      vim.keymap.set("n", "<C-t>", ":NvimTreeFindFile<CR>", { silent = true })
+    end
+  }
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
     end
   }
 
