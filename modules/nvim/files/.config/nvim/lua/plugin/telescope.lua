@@ -24,7 +24,7 @@ require('telescope').setup{
     -- builtin picker
     find_files = {
       -- This is needed to pass in `-L` to `rg` so that symlinks are followed
-      find_command = { "rg", "--ignore", "-L", "--hidden", "--files" }
+      find_command = { "rg", "--ignore", "-L", "--hidden", "-g", "!.git/", "--files" }
     }
   },
   extensions = {
