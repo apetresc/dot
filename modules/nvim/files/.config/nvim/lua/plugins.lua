@@ -81,7 +81,8 @@ return require("packer").startup(function(use)
     'html',
     'css',
     'rust',
-    'sql'
+    'sql',
+    'yaml'
   }
   use {
     'numToStr/Comment.nvim',
