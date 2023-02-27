@@ -180,6 +180,7 @@ return require("packer").startup(function(use)
   use {
     "krivahtoo/silicon.nvim",
     run = "./install.sh",
+    cond = "vim.fn.has('win32') == 0",
     config = function()
       require("silicon").setup({
         theme = "zenburn",
