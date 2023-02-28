@@ -52,6 +52,8 @@ vim.opt.mouse = "a"
 -- Search
 vim.opt.ic = true -- Ignore case when searching
 
+-- Jumping
+vim.opt.jumpoptions = "view"
 
 -- Plugins
 require('plugins')
