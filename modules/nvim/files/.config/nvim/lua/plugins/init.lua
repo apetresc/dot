@@ -39,18 +39,6 @@ return {
   -- Debugging
   'mfussenegger/nvim-dap',
 
-  -- LSP-related
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-    },
-    config = function()
-      require("lsp")
-    end
-  },
-  'simrat39/rust-tools.nvim',
   {
     'nvim-treesitter/nvim-treesitter',
     build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
@@ -72,12 +60,13 @@ return {
     end
   },
 
-  'numToStr/Comment.nvim',
+  {
+    'numToStr/Comment.nvim',
+    config = true
+  },
 
   -- Terraform
   'hashivim/vim-terraform',
-
-  -- Git
 
   -- Diagnostics
   {
