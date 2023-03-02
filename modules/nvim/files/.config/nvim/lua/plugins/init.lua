@@ -15,7 +15,11 @@ return {
   },
   {
     'preservim/vimux',
-    cond = "os.getenv('TERM_PROGRAM') == 'tmux'",
+    cond = function() return os.getenv('TERM_PROGRAM') == 'tmux' end,
+    keys = {
+      { '<F9>', ':VimuxPromptCommand<CR>', desc = 'Prompt for a Vimux command' },
+      { '<F10>', ':VimuxRunLastCommand<CR>', desc = 'Run last Vimux command' },
+    },
     config = function()
       vim.keymap.set('n', '<F9>', ':VimuxPromptCommand<CR>')
       vim.keymap.set('n', '<F10>', ':VimuxRunLastCommand<CR>')
@@ -125,7 +129,8 @@ return {
   {
     'krivahtoo/silicon.nvim',
     build = './install.sh',
-    cond = "vim.fn.has('win32') == 0",
+    cond = function() return vim.fn.has('win32') == 0 end,
+    cmd = "Silicon",
     config = function()
       require('silicon').setup({
         theme = 'zenburn',
