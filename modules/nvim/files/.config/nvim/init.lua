@@ -55,8 +55,6 @@ vim.opt.ic = true -- Ignore case when searching
 -- Jumping
 vim.opt.jumpoptions = "view"
 
-<<<<<<< Updated upstream
-=======
 -- Skip intro screen
 vim.opt.shortmess:append("I")
 
@@ -74,7 +72,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
->>>>>>> Stashed changes
 -- Plugins
-require('plugins')
-
+require('lazy').setup('plugins')
