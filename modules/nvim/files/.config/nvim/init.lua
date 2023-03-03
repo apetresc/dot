@@ -55,6 +55,26 @@ vim.opt.ic = true -- Ignore case when searching
 -- Jumping
 vim.opt.jumpoptions = "view"
 
+<<<<<<< Updated upstream
+=======
+-- Skip intro screen
+vim.opt.shortmess:append("I")
+
+-- Install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+>>>>>>> Stashed changes
 -- Plugins
 require('plugins')
 
