@@ -81,6 +81,12 @@ return {
     end,
     {desc = 'Find currently opened buffers'})
 
+    vim.keymap.set('n', '<leader>fg',
+    function()
+      require('telescope.builtin').live_grep()
+    end,
+    {desc = 'Find string in workspace'})
+
     vim.keymap.set('n', '<leader>gs',
     function()
       require("telescope.builtin").git_status()
