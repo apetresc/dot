@@ -58,6 +58,9 @@ vim.opt.jumpoptions = "view"
 -- Skip intro screen
 vim.opt.shortmess:append("I")
 
+-- Some custom keymaps
+vim.keymap.set('n', 'gx', [[:silent! execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], {noremap = true, silent = true})
+
 -- Install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
