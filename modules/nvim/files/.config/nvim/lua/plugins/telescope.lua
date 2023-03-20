@@ -30,7 +30,17 @@ return {
         find_files = {
           -- This is needed to pass in `-L` to `rg` so that symlinks are followed
           find_command = { "rg", "--ignore", "-L", "--hidden", "-g", "!.git/", "--files" }
-        }
+        },
+        buffers = {
+          mappings = {
+            n = {
+              ['<Del>'] = require('telescope.actions').delete_buffer,
+            },
+            i = {
+              ['<Del>'] = require('telescope.actions').delete_buffer,
+            },
+          },
+        },
       },
       extensions = {
         -- Your extension configuration goes here:
