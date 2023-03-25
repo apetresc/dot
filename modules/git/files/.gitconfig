@@ -1,7 +1,7 @@
 [user]
 	name = Adrian Petrescu
 	email = adrian@apetre.sc
-	signingkey = 3700391F!
+	signingkey = ~/.ssh/id_rsa.pub
 [init]
 	defaultBranch = master
 [sendemail]
@@ -58,6 +58,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 
+[gpg]
+	format = ssh
 [commit]
 	gpgSign = true
 [tag]
