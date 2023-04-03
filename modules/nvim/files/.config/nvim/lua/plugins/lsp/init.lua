@@ -80,5 +80,9 @@ return {
     'simrat39/rust-tools.nvim',
     ft='rust',
   },
+  {
+    'j-hui/fidget.nvim',
+    config = true,
+  },
 }
 
