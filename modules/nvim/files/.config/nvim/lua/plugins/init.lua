@@ -22,11 +22,6 @@ return {
     },
   },
 
-  --[[ Editorconfig allows for a central place to set style rules for different
-       file types. Details at https://editorconfig.org/
-  --]]
-  'editorconfig/editorconfig-vim',
-
   -- Color schemes
   -- Love me some alien fruit salad
   {
