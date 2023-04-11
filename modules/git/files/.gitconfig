@@ -51,6 +51,8 @@
 	filemode = true
 	excludesfile = ~/.gitignore_global
 	autocrlf = input
+	safecrlf = true
+	eol = lf
 
 [filter "lfs"]
 	required = true
