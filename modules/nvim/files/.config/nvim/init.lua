@@ -60,6 +60,9 @@ vim.opt.shortmess:append("I")
 
 -- Some custom keymaps
 vim.keymap.set('n', 'gx', [[:silent! execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], {noremap = true, silent = true})
+-- The mapping below fixes a bug in Neovim where <S-Space> in :terminal sends a `;2u` character instead of a space.
+-- TODO: Remove this once the bug is fixed upstream
+vim.keymap.set('t', '<S-Space>', '<Space>', {noremap = true})
 
 -- Set up Powershell if we're in Windows
 if os.getenv('OS') == 'Windows_NT' then
