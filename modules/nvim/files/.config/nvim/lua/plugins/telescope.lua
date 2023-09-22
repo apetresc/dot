@@ -3,8 +3,6 @@ return {
   branch = '0.1.x',
   dependencies = {
     {'nvim-lua/plenary.nvim'}, -- Lua development module
-    {'BurntSushi/ripgrep'},    -- character finding
-    {'sharkdp/fd'}             -- fast file replacement
   },
   config = function()
     require('telescope').setup{
