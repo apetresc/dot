@@ -12,7 +12,6 @@ function bind_common_keys(_, bufnr)
   Map('n', 'gd', vim.lsp.buf.type_definition, 'Go to type definition')
   Map('n', 'gr', vim.lsp.buf.type_definition, 'List references')
   Map('n', '<leader>r', vim.lsp.buf.rename, 'Rename symbol')
-  Map('n', 'gs', ':SymbolsOutline<CR>', 'Symbols outline')
   Map('n', 'gw', vim.lsp.buf.workspace_symbol, 'List workspace symbols')
   Map('n', '[x', vim.diagnostic.goto_prev, 'Go to previous diagnostic')
   Map('n', ']x', vim.diagnostic.goto_next, 'Go to next diagnostic')
@@ -74,39 +73,15 @@ return {
     end
   },
   {
-    'simrat39/symbols-outline.nvim',
-    cmd = 'SymbolsOutline',
+    'stevearc/aerial.nvim',
     opts = {
-      symbols = {
-        File = { icon = "", hl = "@text.uri" },
-        Module = { icon = "", hl = "@namespace" },
-        Namespace = { icon = "", hl = "@namespace" },
-        Package = { icon = "", hl = "@namespace" },
-        Class = { icon = "", hl = "@type" },
-        Method = { icon = "ƒ", hl = "@method" },
-        Property = { icon = "", hl = "@method" },
-        Field = { icon = "", hl = "@field" },
-        Constructor = { icon = "", hl = "@constructor" },
-        Enum = { icon = "", hl = "@type" },
-        Interface = { icon = "", hl = "@type" },
-        Function = { icon = "", hl = "@function" },
-        Variable = { icon = "", hl = "@constant" },
-        Constant = { icon = "", hl = "@constant" },
-        String = { icon = "", hl = "@string" },
-        Number = { icon = "#", hl = "@number" },
-        Boolean = { icon = "", hl = "@boolean" },
-        Array = { icon = "", hl = "@constant" },
-        Object = { icon = "", hl = "@type" },
-        Key = { icon = "", hl = "@type" },
-        Null = { icon = "", hl = "@type" },
-        EnumMember = { icon = "", hl = "@field" },
-        Struct = { icon = "", hl = "@type" },
-        Event = { icon = "", hl = "@type" },
-        Operator = { icon = "", hl = "@operator" },
-        TypeParameter = { icon = "", hl = "@parameter" },
-        Component = { icon = "", hl = "@function" },
-        Fragment = { icon = "", hl = "@constant" },
-      }
+      show_guides = true,
+      manage_folds = true,
+    },
+    -- Optional dependencies
+    dependencies = {
+       "nvim-treesitter/nvim-treesitter",
+       "nvim-tree/nvim-web-devicons"
     },
   },
   {

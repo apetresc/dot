@@ -104,6 +104,7 @@ return {
     end
   },
 
+  -- Terminal-related
   {
     'akinsho/toggleterm.nvim',
     version = "*",
@@ -130,6 +131,12 @@ return {
       -- if you only want these mappings for toggle term use term://*toggleterm#* instead
       vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
     end
+  },
+
+  -- Misc
+  {
+    'stevearc/stickybuf.nvim',
+    opts = {},
   },
 
   -- Silicon (generate images)
