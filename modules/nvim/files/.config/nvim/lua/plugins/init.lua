@@ -52,6 +52,18 @@ return {
         'yaml'
       }
     end,
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = {"comment", "lua", "markdown", "markdown_inline", "python", "vim"},
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        indent = {
+          enable = true,
+        },
+      }
+    end,
     build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   },
 
@@ -91,6 +103,23 @@ return {
       vim.keymap.set('n', '<C-Bslash>', ':NvimTreeToggle<CR>', { silent = true } )
       vim.keymap.set('n', '<C-t>', ':NvimTreeFindFile<CR>', { silent = true })
     end
+  },
+
+  -- Tabline
+  {'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      auto_hide = 1,
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
 
   -- Help navigation
