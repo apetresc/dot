@@ -29,6 +29,15 @@ function bind_common_keys(_, bufnr)
   })
 end
 
+function bind_debug_keys(_, bufnr)
+  local default_bufopts = { noremap = true, silent = true, buffer = bufnr }
+  local function Map(mode, lhs, rhs, desc, bufopts)
+    return vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', bufopts or default_bufopts, {desc = desc}))
+  end
+  local dap = require('dap')
+  Map('n', '<leader>db', dap.toggle_breakpoint, 'Toggle breakpoint')
+end
+
 return {
   {
     'neovim/nvim-lspconfig',
@@ -36,8 +45,6 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
     },
-    config = function()
-    end
   },
   {
     'williamboman/mason.nvim',
@@ -45,31 +52,22 @@ return {
       'williamboman/mason-lspconfig.nvim',
     },
     config = function()
+      local lspconfig = require("lspconfig")
       require("mason").setup()
       mason_lspconfig = require("mason-lspconfig")
-      mason_lspconfig.setup()
-      mason_lspconfig.setup_handlers({
-        function (server_name)
-          require("lspconfig")[server_name].setup {
-            on_attach = bind_common_keys,
-          }
-        end,
-        ["rust_analyzer"] = function ()
-          local rt = require("rust-tools")
-          rt.setup({
-            server = {
-              on_attach = function(_, bufnr)
-                bind_common_keys(_, bufnr)
-                local bufopts = { noremap = true, silent = true, buffer = bufnr }
-                -- Hover actions
-                vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, bufopts)
-                -- Code action groups
-                vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, bufopts)
-              end,
-            },
-          })
-        end
-      })
+      mason_lspconfig.setup({
+        handlers = {
+          function(server)
+            lspconfig[server].setup({
+              on_attach = bind_common_keys,
+            })
+          end,
+          ["rust_analyzer"] = function()
+            -- We don't let lspconfig do the setup for rust_analyzer because we
+            -- want to use the rustaceanvim plugin for rust.
+            --return true
+          end,
+        }})
     end
   },
   {
@@ -85,8 +83,31 @@ return {
     },
   },
   {
-    'simrat39/rust-tools.nvim',
-    ft='rust',
+    'mrcjkb/rustaceanvim',
+    version = '^3',
+    ft = { 'rust' },
+    config = function()
+      vim.g.rustaceanvim = {
+        -- Plugin configuration
+        tools = {
+        },
+        -- LSP configuration
+        server = {
+          on_attach = function(client, bufnr)
+            bind_common_keys(client, bufnr)
+            bind_debug_keys(client, bufnr)
+          end,
+          settings = {
+            -- rust-analyzer language server configuration
+            ['rust-analyzer'] = {
+            },
+          },
+        },
+        -- DAP configuration
+        dap = {
+        },
+      }
+    end,
   },
   {
     'j-hui/fidget.nvim',
