@@ -49,7 +49,8 @@ return {
         'css',
         'rust',
         'sql',
-        'yaml'
+        'yaml',
+        'python',
       }
     end,
     config = function()
