@@ -80,14 +80,40 @@ return {
   {
     'folke/trouble.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
-    config = true,
+    opts = {},
+    cmd = "Trouble",
     keys = {
-      { '<leader>xx', ':TroubleToggle<CR>', silent = true, noremap = true, desc = "toggle Trouble" },
-      { '<leader>xw', ':TroubleToggle workspace_diagnostics<CR>', silent = true, noremap = true, desc = "Trouble workspace diagnostics" },
-      { '<leader>xd', ':TroubleToggle document_diagnostics<CR>', silent = true, noremap = true, desc = "Trouble document diagnostics" },
-      { '<leader>xl', ':TroubleToggle loclist<CR>', silent = true, noremap = true, desc = "Trouble loclist" },
-      { '<leader>xq', ':TroubleToggle quickfix<CR>', silent = true, noremap = true, desc = "Trouble quickfix" },
-      -- TODO: Figure out how to use TroubleToggle for lsp_refrerences etc.
+      {
+        '<leader>xx',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        silent = true, noremap = true,
+        desc = "Diagnostics (Trouble)" 
+      },
+      {
+        '<leader>xX',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
     }
   },
 
