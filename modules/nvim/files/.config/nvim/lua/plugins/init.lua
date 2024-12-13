@@ -84,14 +84,13 @@ return {
     cmd = "Trouble",
     keys = {
       {
-        '<leader>xx',
-        '<cmd>Trouble diagnostics toggle<cr>',
-        silent = true, noremap = true,
-        desc = "Diagnostics (Trouble)" 
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
       },
       {
-        '<leader>xX',
-        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics (Trouble)",
       },
       {
@@ -114,7 +113,8 @@ return {
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
-    }
+      -- TODO: Figure out how to use TroubleToggle for lsp_references etc.
+    },
   },
 
   -- File Navigation
