@@ -24,12 +24,24 @@ vim.opt.showmode = false --[[ Whether to show current mode in cmd window.
                          --]]
 vim.opt.number = true
 vim.opt.relativenumber = true -- Line numbers are relative
-vim.opt.colorcolumn = '80' -- Draw a marker at the 80-column mark
-vim.opt.inccommand = 'nosplit'
-vim.opt.clipboard = 'unnamedplus'
+-- vim.opt.colorcolumn = '80' -- Draw a marker at the 80-column mark
+-- Instead of setting colorcolumn to a fixed value, let's pull the
+-- max_line_length from editorconfig.
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  callback = function(args)
+    local bufnr = args.buf
+    local ec = vim.b[bufnr].editorconfig
+
+    if ec and ec.max_line_length then
+      vim.opt_local.colorcolumn = tostring(ec.max_line_length)
+    end
+  end,
+})
+vim.opt.inccommand = "nosplit"
+vim.opt.clipboard = "unnamedplus"
 
 -- Highlight yanked text
-vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {timeout=400}'
+vim.cmd("au TextYankPost * lua vim.highlight.on_yank {timeout=400}")
 
 -- Persistent undos
 vim.opt.undofile = true
@@ -44,7 +56,7 @@ vim.opt.splitright = true
 
 -- Whitespace
 vim.opt.list = true
-vim.opt.listchars = { trail = '·', tab = '▸ ' }
+vim.opt.listchars = { trail = "·", tab = "▸ " }
 
 -- Mouse
 vim.opt.mouse = "a"
@@ -59,16 +71,26 @@ vim.opt.jumpoptions = "view"
 vim.opt.shortmess:append("I")
 
 -- Some custom keymaps
-vim.keymap.set('n', 'gx', [[:silent! execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'gs', ':AerialToggle<CR>', {noremap = true, desc = 'Symbols outline'})
+vim.keymap.set(
+  "n",
+  "gx",
+  [[:silent! execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]],
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "gs",
+  ":AerialToggle<CR>",
+  { noremap = true, desc = "Symbols outline" }
+)
 -- The mapping below fixes a bug in Neovim where <S-Space> in :terminal sends a `;2u` character instead of a space.
 -- TODO: Remove this once the bug is fixed upstream
-vim.keymap.set('t', '<S-Space>', '<Space>', {noremap = true})
+vim.keymap.set("t", "<S-Space>", "<Space>", { noremap = true })
 
 -- Set up Powershell if we're in Windows
-if os.getenv('OS') == 'Windows_NT' then
+if os.getenv("OS") == "Windows_NT" then
   local powershell_options = {
-    shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+    shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
     shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
     shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
     shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
@@ -96,4 +118,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
-require('lazy').setup('plugins')
+require("lazy").setup("plugins")
