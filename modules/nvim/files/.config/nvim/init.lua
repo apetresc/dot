@@ -103,6 +103,53 @@ if os.getenv("OS") == "Windows_NT" then
   end
 end
 
+-- Zip file
+-- Function to delete files from zip archives
+local function delete_from_zip()
+  local file = vim.api.nvim_get_current_line()
+  -- Extract just the filename from the listing
+  -- Zip listing format: "  length  date  time  filename"
+  local filename = file:gsub("^%s*%d+%s+%d+%-+%d+%-+%d+%s+%d+:+%d+%s+", "")
+  local archive = vim.fn.expand("%")
+
+  local choice =
+    vim.fn.confirm('Delete "' .. filename .. '" from archive?', "&Yes\n&No", 2)
+  if choice == 1 then
+    -- Use system() instead of ! to avoid Vim command-line escaping issues
+    local cmd = { "zip", "-d", archive, filename }
+    local result = vim.fn.system(cmd)
+
+    -- Check if the command succeeded
+    if vim.v.shell_error ~= 0 then
+      vim.notify("Failed to delete file: " .. result, vim.log.levels.ERROR)
+    else
+      -- Refresh the listing
+      vim.cmd("edit")
+    end
+  end
+end
+
+-- Create autocmd for zip filetype
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "zip",
+  callback = function()
+    -- Create buffer-local mapping for deletion
+    vim.keymap.set("n", "<leader>d", delete_from_zip, {
+      buffer = true,
+      desc = "Delete file from zip archive",
+    })
+  end,
+})
+
+-- Make Neovim treat .cbz files as zip files
+vim.api.nvim_create_autocmd({ "BufReadCmd", "FileReadCmd" }, {
+  pattern = "*.cbz",
+  callback = function()
+    vim.bo.filetype = "zip"
+    vim.fn["zip#Browse"](vim.fn.expand("<amatch>"))
+  end,
+})
+
 -- Install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
