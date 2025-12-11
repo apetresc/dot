@@ -8,6 +8,7 @@
 	autocrlf = input
 	safecrlf = true
 	eol = lf
+	ignorecase = false
 [init]
 	defaultBranch = master
 [alias]
