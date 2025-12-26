@@ -18,9 +18,7 @@ fi
 [[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
 find -L $HOME/.Xresources.d -type f -exec xrdb -merge '{}' \;
 
-xhost +
-
-export TERMINAL="alacritty"
+export TERMINAL="ghostty"
 
 [[ -f $HOME/.fehbg ]] && sh $HOME/.fehbg
 
