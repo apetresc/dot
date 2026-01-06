@@ -1,10 +1,25 @@
+local lsp_servers = {
+  "pyright",
+  -- add others here as I install them
+}
+
 function bind_common_keys(_, bufnr)
   local default_bufopts = { noremap = true, silent = true, buffer = bufnr }
   local function Map(mode, lhs, rhs, desc, bufopts)
-    return vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", bufopts or default_bufopts, { desc = desc }))
+    return vim.keymap.set(
+      mode,
+      lhs,
+      rhs,
+      vim.tbl_extend("force", bufopts or default_bufopts, { desc = desc })
+    )
   end
   Map("n", "<c-]>", vim.lsp.buf.definition, "Go to definition")
-  Map("n", "K", vim.lsp.buf.hover, "Display hover information about the symbol under the cursor")
+  Map(
+    "n",
+    "K",
+    vim.lsp.buf.hover,
+    "Display hover information about the symbol under the cursor"
+  )
   Map("n", "gh", vim.lsp.buf.signature_help, "Display signature help")
   Map("n", "ga", vim.lsp.buf.code_action, "Show code actions")
   Map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
@@ -19,7 +34,8 @@ function bind_common_keys(_, bufnr)
   Map("n", "]s", vim.diagnostic.show, "Show diagnostic")
   Map("n", "]r", vim.diagnostic.open_float, "Float diagnostic")
 
-  local id = vim.api.nvim_create_augroup("SharedLspFormatting", { clear = true })
+  local id =
+    vim.api.nvim_create_augroup("SharedLspFormatting", { clear = true })
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     group = id,
     pattern = "*",
@@ -32,21 +48,37 @@ end
 function bind_debug_keys(_, bufnr)
   local default_bufopts = { noremap = true, silent = true, buffer = bufnr }
   local function Map(mode, lhs, rhs, desc, bufopts)
-    return vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", bufopts or default_bufopts, { desc = desc }))
+    return vim.keymap.set(
+      mode,
+      lhs,
+      rhs,
+      vim.tbl_extend("force", bufopts or default_bufopts, { desc = desc })
+    )
   end
   local dap = require("dap")
   Map("n", "<leader>db", dap.toggle_breakpoint, "Toggle breakpoint")
 end
 
+for _, name in ipairs(lsp_servers) do
+  vim.lsp.config(name, {
+    on_attach = bind_common_keys,
+    -- If you have cmp_nvim_lsp capabilities somewhere, add them here:
+    -- capabilities = my_capabilities,
+  })
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+    dependencies = {
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
+    },
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -69,18 +101,6 @@ return {
     end,
   },
   {
-    "stevearc/aerial.nvim",
-    opts = {
-      show_guides = true,
-      manage_folds = true,
-    },
-    -- Optional dependencies
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
-  {
     "stevearc/conform.nvim",
     opts = {},
     config = function()
@@ -88,7 +108,8 @@ return {
         formatters_by_ft = {
           lua = { "stylua" },
           -- Conform will run multiple formatters sequentially
-          python = { "isort", "black" },
+          -- python = { "isort", "black" },
+          python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
           -- You can customize some of the format options for the filetype (:help conform.format)
           rust = { "rustfmt", lsp_format = "fallback" },
           -- Conform will run the first available formatter
@@ -104,7 +125,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^5",
+    version = "^7",
     lazy = false,
     ft = { "rust" },
     config = function()
@@ -129,7 +150,6 @@ return {
   },
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
     config = true,
   },
 }

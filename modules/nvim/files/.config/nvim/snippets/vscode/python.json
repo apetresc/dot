@@ -1,0 +1,16 @@
+{
+  "UV Script with Inline Dependencies": {
+    "prefix": "uvscript",
+    "body": [
+      "#!/usr/bin/env -S uv run --script",
+      "# /// script",
+      "# requires-python = \">=3.10\"",
+      "# dependencies = [",
+      "#   \"$1pkg1>=0.0.0\",",
+      "#   \"$2pkg2\",",
+      "# ]",
+      "# ///"
+    ],
+    "description": "Python script template with uv inline dependencies"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "TikZ Diagram": {
+    "prefix": "tdiag",
+    "body": [
+      "\\begin{tikzpicture}[thick/.style={line width=1pt},use as bounding box]",
+      "  $0",
+      "  % Add a margin of 0.2 units around each edge of the drawing",
+      "  \\node[fit=(current bounding box), inner sep=0.2cm] {};",
+      "\\end{tikzpicture}"
+    ]
+  }
+}

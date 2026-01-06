@@ -16,7 +16,7 @@
 
 vim.g.mapleader = ","
 
-vim.opt.cmdheight = 1 --[[ The height of the bottom row where :commands are
+vim.opt.cmdheight = 0 --[[ The height of the bottom row where :commands are
                            typed. If it's 0, then it only appears when
                       --]]
 vim.opt.showmode = false --[[ Whether to show current mode in cmd window.
