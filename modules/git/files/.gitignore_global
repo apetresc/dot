@@ -21,3 +21,5 @@ docker-compose.override.yml
 tags
 Session.vim
 .nvimrc
+
+.claude/settings.local.json
