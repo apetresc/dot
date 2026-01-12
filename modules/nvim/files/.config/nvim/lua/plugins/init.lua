@@ -329,6 +329,17 @@ return {
         aux_dir = ".latexout/aux",
       }
     end,
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "tex",
+        callback = function()
+          vim.keymap.set("n", "<F10>", "<cmd>VimtexCompile<cr>", {
+            buffer = true,
+            desc = "Compile LaTeX",
+          })
+        end,
+      })
+    end,
   },
 
   -- Misc
