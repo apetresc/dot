@@ -1,9 +1,9 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
     dependencies = {
       { "nvim-lua/plenary.nvim" }, -- Lua development module
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     lazy = false,
     config = function()

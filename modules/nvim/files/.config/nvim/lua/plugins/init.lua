@@ -44,6 +44,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     init = function()
       vim.g.markdown_fenced_languages = {
         "bash=sh",
@@ -62,7 +63,7 @@ return {
       }
     end,
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter.config").setup({
         ensure_installed = {
           "comment",
           "lua",
@@ -80,10 +81,7 @@ return {
         },
       })
     end,
-    build = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-    end,
-  },
+    build = ':TSUpdate' },
 
   {
     "numToStr/Comment.nvim",
